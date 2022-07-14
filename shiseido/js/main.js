@@ -15,7 +15,6 @@ $(function () {
       cnt %= 3;
       $('.new_product .next_box, .new_product .prev_box').css('background', color_set[cnt]);
     }
-    // $('.new_product .next_box, .new_product .prev_box').css('background', color_set[(c + 1) < 3 ? c + 1 : c = 0]);
   });
 
   $('#header_bg_video').YTPlayer({
@@ -43,5 +42,19 @@ $(function () {
     s_cnt += 1;
     $('.main_slider').slick('slickNext');
   });
-})
+
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 2100) {
+      $('.ginza_edit .edit_box').eq(0).addClass('scroll');
+    }
+    if ($(this).scrollTop() > 3100) {
+      $('.ginza_edit .edit_box').eq(1).addClass('scroll');
+    }
+    if ($(this).scrollTop() > 4100) {
+      $('.ginza_edit .edit_box').eq(2).addClass('scroll');
+    }
+  })
+
+});
+
 

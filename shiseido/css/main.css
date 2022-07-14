@@ -112,7 +112,7 @@
   right: 0;
   margin-top: 20px;
   display: block;
-  width: 900px;
+  width: 800px;
   height: 2px;
   background-color: #d40055;
 }
@@ -356,10 +356,18 @@ main .ginza_edit {
 }
 
 .ginza_edit .total_box .edit_box {
-  /* outline: 1px solid #000; */
+  /* outline: 1px solid #fff; */
   display: flex;
   gap: 30px;
   width: 1514px;
+  opacity: 0;
+  transform: translateY(50%);
+  transition: 2s;
+}
+
+.ginza_edit .edit_box.scroll {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .ginza_edit .edit_box figure {
@@ -374,7 +382,6 @@ main .ginza_edit {
   display: block;
   width: 100%;
   height: 667px;
-  /* background-color: rgba(0, 0, 0, 0.4); */
   transition: 0.5s;
 }
 
@@ -457,18 +464,33 @@ main .ginza_edit {
 
 .ginza_edit .edit_box:first-child h4::after {
   right: -75%;
+  width: 0;
+  transition: 3s;
+}
+
+.ginza_edit .edit_box.scroll:first-child h4::after {
   width: 700px;
 }
 
 .ginza_edit .edit_box:nth-child(2) h4::after {
   left: -75%;
+  width: 0;
+  transition: 3s;
+}
+
+.ginza_edit .edit_box.scroll:nth-child(2) h4::after {
   width: 1000px;
 }
 
 .ginza_edit .edit_box:last-child h4::after {
   right: -75%;
+  width: 0;
+  height: 2px;
+  transition: 3s;
+}
+
+.ginza_edit .edit_box.scroll:last-child h4::after {
   width: 860px;
-  height: 3px;
 }
 
 .ginza_edit .edit_desc strong {
@@ -572,7 +594,6 @@ main .sns {
   justify-content: space-between;
 }
 
-
 #footer .service_list {
   /* outline: 1px solid #fff; */
   display: flex;
@@ -591,6 +612,7 @@ main .sns {
   font-size: 13px;
   font-weight: 300;
   text-transform: capitalize;
+  color: #555;
 }
 
 #footer .service_list a {
@@ -604,7 +626,7 @@ main .sns {
 
 #footer .top_footer .container .footer_logo {
   width: 201px;
-  height: 30px;
+  height: 35px;
   background-image: url('../assets/image/logo/shiseido_logo_2.png');
 }
 
@@ -650,4 +672,5 @@ main .sns {
   font-size: 11px;
   font-weight: 700;
   line-height: 20px;
+  color: #555;
 }
