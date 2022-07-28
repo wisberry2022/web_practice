@@ -1,0 +1,2371 @@
+body {
+  color: #333;
+}
+
+.scroll_up {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 25px;
+  line-height: 50px;
+  text-align: center;
+  opacity: 0;
+  transition: 0.5s;
+  background-color: #f1f1f1;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.scroll_up.opac {
+  opacity: 1;
+}
+
+.btn {
+  display: block;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.bg_set {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+}
+
+/* HEADER CSS CODE */
+#header {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.045em;
+}
+
+#header .only_ipad_tab {
+  display: none;
+}
+
+#header .gnb .container {
+  /* outline: 1px solid #000; */
+  padding: 10px 0;
+  display: flex;
+  width: 1200px;
+}
+
+.gnb .container h1 {
+  width: 60px;
+  height: 60px;
+}
+
+.gnb .container .main_menu {
+  display: flex;
+  margin-left: 193px;
+  text-transform: uppercase;
+}
+
+.gnb .main_menu a {
+  display: block;
+  padding: 24px 40px;
+}
+
+.gnb .main_menu i {
+  display: none;
+}
+
+.gnb .container .side_menu {
+  margin-left: 85px;
+  padding: 16px 0;
+  display: flex;
+  gap: 25px;
+}
+
+.gnb .side_menu form {
+  /* outline: 1px solid #000; */
+  position: relative;
+  padding: 5px 0;
+}
+
+.gnb .side_menu input {
+  border-radius: 13.5px;
+  border: none;
+  padding: 5px;
+  font-size: 11px;
+  width: 120px;
+  background: #eeeeee;
+}
+
+.gnb .side_menu button {
+  position: absolute;
+  top: 18%;
+  right: 5%;
+  border: none;
+  background: transparent;
+  font-size: 15px;
+}
+
+.gnb .side_menu>i {
+  padding-top: 10px;
+}
+
+#header .main_slider {
+  position: relative;
+}
+
+.main_slider figure {
+  /* outline: 1px solid #000; */
+  position: relative;
+  height: 595px;
+}
+
+.main_slider .bg_01 {
+  background-image: url('../assets/image/header/header_01_m.jpg');
+}
+
+.main_slider .slogan_box {
+  position: absolute;
+}
+
+.main_slider .bg_01 .slogan_box {
+  /* outline: 1px solid #000; */
+  right: 18%;
+  bottom: 30%;
+}
+
+.main_slider .slogan_box h3 {
+  margin-bottom: 20px;
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: 0.045em;
+}
+
+.main_slider .slogan_box strong {
+  display: block;
+  margin-bottom: 38px;
+  font-size: 21px;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+
+.main_slider .slogan_box .btn_box {
+  display: flex;
+  gap: 30px;
+}
+
+.main_slider .slogan_box .btn {
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.main_slider .slogan_box .left {
+  padding: 18px 50px;
+  color: #ddd;
+  background-color: #0c273a;
+}
+
+.main_slider .slogan_box .right {
+  padding: 18px 27px;
+  color: #333;
+  background-color: #ff9a3a;
+}
+
+.main_slider .bg_02 {
+  background-image: url('../assets/image/header/header_02.jpg');
+}
+
+.main_slider .bg_02 .slogan_box {
+  top: 30%;
+  left: 30%;
+  color: #ddd;
+}
+
+.main_slider .bg_03 {
+  background-image: url('../assets/image/header/temp.jpg');
+  background-position-y: top;
+}
+
+.main_slider .bg_03 .slogan_box {
+  top: 38%;
+  left: 15%;
+  color: #ddd;
+}
+
+.main_slider .slick-dots {
+  position: absolute;
+  bottom: 10%;
+  right: 17%;
+}
+
+.main_slider .slick-dots li {
+  display: inline-block;
+  margin-right: 20px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  transition-timing-function: ease-in-out;
+}
+
+.main_slider .slick-dots li.slick-active {
+  border-radius: 11px;
+  width: 94px;
+  background-color: #ce9272;
+  transition: width 0.7s, background-color 0.7s;
+}
+
+.main_slider .slick-dots li button {
+  border: none;
+  font-size: 0;
+  background: transparent;
+}
+
+/* SECTION BRAND_INTRO CSS CODE */
+main .brand_intro {
+  position: relative;
+  padding: 100px 0;
+  letter-spacing: -0.025em;
+}
+
+.brand_intro .img_box img {
+  /* outline: 5px solid #f00; */
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 90%;
+  opacity: 0;
+  transition: 3s;
+  z-index: -1;
+}
+
+.brand_intro .img_box.show img {
+  opacity: 1;
+  animation-name: row_move;
+  animation-delay: 3s;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes row_move {
+  from {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(1%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.brand_intro .img_box::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 100px;
+  display: block;
+  width: 0;
+  height: 119px;
+  background-color: #ce9272;
+  transition: 3s;
+  z-index: -2;
+}
+
+.brand_intro .img_box.show::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 100px;
+  display: block;
+  width: 700px;
+  height: 119px;
+  background-color: #ce9272;
+}
+
+.brand_intro .container {
+  width: 1200px;
+}
+
+.brand_intro .container h3 {
+  margin-bottom: 85px;
+  font-size: 29px;
+  font-weight: 400;
+  letter-spacing: 0.045em;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.brand_intro h3 strong {
+  display: block;
+  margin-top: 10px;
+  font-weight: 700;
+}
+
+.brand_intro .top_intro {
+  position: relative;
+  margin-bottom: 100px;
+}
+
+.brand_intro .top_intro::before {
+  content: '';
+  position: absolute;
+  top: -1%;
+  left: -30px;
+  display: block;
+  width: 3px;
+  height: 170px;
+  background-color: #f98702;
+}
+
+.brand_intro .top_intro h4 {
+  margin-bottom: 47px;
+  font-size: 21px;
+  font-weight: 500;
+}
+
+.brand_intro .top_intro p {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.47;
+}
+
+.brand_intro .bottom_intro {
+  position: relative;
+  width: 585px;
+}
+
+.brand_intro .bottom_intro::before {
+  content: '';
+  position: absolute;
+  top: -1%;
+  left: -30px;
+  display: block;
+  width: 3px;
+  height: 243px;
+  background-color: #f98702;
+}
+
+.brand_intro .bottom_intro h4 {
+  /* outline: 1px solid #000; */
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 27px;
+}
+
+.brand_intro .bottom_intro h4 strong {
+  display: block;
+  font-size: 21px;
+  font-weight: 500;
+}
+
+.brand_intro .bottom_intro h4 a {
+  /* outline: 1px solid #000; */
+  display: block;
+  padding-top: 3px;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.025em;
+}
+
+.brand_intro .bottom_intro h4 a i {
+  font-size: 10px;
+}
+
+.brand_intro .bottom_intro p {
+  margin-bottom: 60px;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.47;
+  letter-spacing: -0.025em;
+}
+
+.brand_intro .bottom_intro .btn_box {
+  display: flex;
+  gap: 30px;
+}
+
+.brand_intro .bottom_intro .btn_box>* {
+  flex: 1;
+}
+
+.brand_intro .btn_box .btn {
+  display: block;
+  font-size: 15px;
+  font-weight: 400;
+  background-color: #f98702;
+  text-align: center;
+}
+
+.brand_intro .btn_box .first {
+  padding: 17px 0;
+}
+
+.brand_intro .btn_box .second {
+  padding: 17px 0;
+}
+
+.brand_intro .btn_box .third {
+  padding: 16px 0;
+}
+
+/* SECTION SIMS CSS CODE */
+main .sims {
+  padding: 100px 196px;
+  height: 100vh;
+  letter-spacing: -0.025em;
+  background-image: url('../assets/image/section/game_intro/background.jpg');
+  transition: 1s;
+}
+
+main .sims.origin {
+  background-image: url('../assets/image/section/game_intro/background.jpg');
+}
+
+main .sims.changeBackground {
+  background-image: url('../assets/image/section/game_intro/battlefield/battlefield_section_Bg.jpg');
+}
+
+main .sims.doubleChange {
+  background-image: url('../assets/image/section/game_intro/fifa/fifa_big_bg.jpg');
+}
+
+main .sims .inner {
+  /* outline: 1px solid #000; */
+  display: flex;
+  gap: 40px;
+  opacity: 1;
+  transition: 1s;
+}
+
+main .sims .inner.hide {
+  opacity: 0;
+}
+
+.sims .inner .intro_img_01 {
+  flex: 1;
+  /* outline: 1px solid #000; */
+  height: 808px;
+  background-image: url('../assets/image/section/game_intro/sims/sims_bg.png');
+  background-position: right;
+}
+
+.sims .inner .contents {
+  flex: 1;
+  /* outline: 1px solid #000; */
+  display: flex;
+  flex-direction: column;
+}
+
+.sims .contents .game_image {
+  /* outline: 1px solid #000; */
+  margin-bottom: 40px;
+  width: 800px;
+  height: 150px;
+  background-image: url("../assets/image/section/game_intro/sims/sims_logo.png");
+  background-size: cover;
+  background-position: 193px 1px;
+}
+
+.sims .contents .intro_title {
+  margin-bottom: 109px;
+  text-align: right;
+}
+
+.sims .intro_title h4 {
+  margin-bottom: 26px;
+  font-size: 27px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.sims .intro_title p {
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1.23;
+  color: #fff;
+}
+
+.sims .contents .intro_desc {
+  /* outline: 1px solid #000; */
+  display: flex;
+  gap: 30px;
+  color: #fff;
+}
+
+.sims .intro_desc .left {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.sims .intro_desc .top {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.sims .intro_desc .top::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  display: block;
+  width: 2px;
+  height: 190px;
+  background-color: #f98702;
+}
+
+.sims .top h4 {
+  margin: 30px 0 15px 0;
+  font-size: 23px;
+  font-weight: 500;
+}
+
+.sims .top p {
+  margin-bottom: 59px;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.26666;
+}
+
+.sims .top .small_btn {
+  /* outline: 1px solid #000; */
+  display: block;
+  font-weight: 100;
+}
+
+.sims .top .small_btn:nth-of-type(1) {
+  margin-bottom: 10px;
+  font-size: 13px;
+  text-align: right;
+}
+
+.sims .top .small_btn:last-child {
+  font-size: 11px;
+}
+
+.sims .intro_desc .bottom {
+  /* outline: 1px solid #000; */
+  display: flex;
+  gap: 30px;
+}
+
+.sims .bottom figure {
+  flex: 1;
+  height: 194px;
+}
+
+.sims .bottom .screen_01 {
+  background-image: url('../assets/image/section/game_intro/sims/sims_02.png');
+}
+
+.sims .bottom .screen_02 {
+  background-image: url('../assets/image/section/game_intro/sims/sims_03.png');
+}
+
+.sims .intro_desc .right {
+  /* outline: 1px solid #000; */
+  position: relative;
+  flex: 1;
+  background-image: url('../assets/image/section/game_intro/sims/sims4_01.jpg');
+  transition: 0.5s;
+}
+
+.sims .right::before {
+  /* outline: 1px solid #000; */
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  transition: 0.5s;
+}
+
+.sims .right .btn_box {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 50px;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.sims .btn {
+  padding: 18px 25px;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+  background-color: #f98702;
+}
+
+.sims .right:hover .btn_box {
+  opacity: 1;
+}
+
+.sims .right:hover::before {
+  /* outline: 1px solid #000; */
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.sims .btn:first-child {
+  margin-bottom: 30px;
+}
+
+/* SECTION BTF CSS CODE */
+main .btf {
+  padding: 100px 196px;
+  height: 100vh;
+  opacity: 0;
+  transition: 0.6s;
+}
+
+main .btf.sticky {
+  opacity: 1;
+}
+
+main .btf .inner {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 40px;
+  opacity: 1;
+  transition: 1s;
+}
+
+main .btf .inner.hide {
+  opacity: 0;
+}
+
+.btf .inner .intro_img_01 {
+  /* outline: 1px solid #fff; */
+  flex: 1;
+  height: 808px;
+  background-image: url('../assets/image/section/game_intro/battlefield/battlefield_bg.png');
+  background-size: 1000px 100%;
+  background-position-x: -250px;
+}
+
+.btf .inner .contents {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.btf .contents .game_image {
+  margin-bottom: 40px;
+  width: 800px;
+  height: 150px;
+  background-image: url("../assets/image/section/game_intro/battlefield/battlefield_logo.png");
+  background-size: contain;
+  background-position: left;
+}
+
+.btf .contents .intro_title {
+  margin-bottom: 109px;
+  text-align: left;
+}
+
+.btf .intro_title h4 {
+  margin-bottom: 26px;
+  font-size: 27px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.btf .intro_title p {
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1.23;
+  color: #fff;
+}
+
+.btf .contents .intro_desc {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 30px;
+  color: #fff;
+}
+
+.btf .intro_desc .left {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.btf .intro_desc .top {
+  position: relative;
+  display: flex;
+  margin-bottom: 10px;
+  flex-direction: column;
+}
+
+.btf .intro_desc .top::before {
+  content: '';
+  position: absolute;
+  right: -20px;
+  display: block;
+  width: 2px;
+  height: 190px;
+  background-color: #ddd;
+}
+
+.btf .top h4 {
+  margin: 30px 0 15px 0;
+  font-size: 23px;
+  font-weight: 500;
+  text-align: right;
+}
+
+.btf .top p {
+  margin-bottom: 59px;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.26666;
+  text-align: right;
+}
+
+.btf .top .small_btn {
+  display: block;
+  font-weight: 100;
+}
+
+.btf .top .small_btn:nth-of-type(1) {
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.btf .top .small_btn:last-child {
+  font-size: 11px;
+  text-align: right;
+}
+
+.btf .intro_desc .bottom {
+  display: flex;
+  gap: 30px;
+}
+
+.btf .bottom figure {
+  flex: 1;
+  height: 194px;
+}
+
+.btf .bottom .screen_01 {
+  background-image: url('../assets/image/section/game_intro/battlefield/battlefield_04.jpg');
+}
+
+.btf .bottom .screen_02 {
+  background-image: url('../assets/image/section/game_intro/battlefield/battlefield_05.jpg');
+}
+
+.btf .intro_desc .right {
+  position: relative;
+  flex: 1;
+  background-image: url('../assets/image/section/game_intro/battlefield/battlefield_01.jpg');
+  transition: 0.5s;
+}
+
+.btf .right:before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  transition: 0.5s;
+}
+
+.btf .right .btn_box {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 50px;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.btf .btn {
+  padding: 18px 25px;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+  background-color: #00202b;
+  color: #fff;
+}
+
+.btf .btn:nth-of-type(2) {
+  background-color: #fff;
+  color: #00202b;
+
+}
+
+.btf .right:hover .btn_box {
+  opacity: 1;
+}
+
+.btf .right:hover::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.btf .btn:first-child {
+  margin-bottom: 30px;
+}
+
+/* SECTION FIFA CSS CODE */
+main .fifa {
+  margin-bottom: 450px;
+  padding: 100px 126px;
+  height: 100vh;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+main .fifa.sticky {
+  opacity: 1;
+}
+
+main .fifa .inner {
+  display: flex;
+  gap: 40px;
+  opacity: 1;
+  transition: 1s;
+}
+
+main .fifa .inner.hide {
+  opacity: 0;
+}
+
+.fifa .cover_box {
+  outline: none;
+  flex: 1;
+  position: relative;
+  height: 808px;
+}
+
+.fifa .inner .intro_img_01 {
+  position: absolute;
+  top: 0;
+  left: -80px;
+  width: 140%;
+  height: 808px;
+  background-image: url('../assets/image/section/game_intro/fifa/fifa_intro_bg.png');
+  background-position-x: -30px;
+  opacity: 0;
+  transition: 0.7s;
+}
+
+.fifa .inner .intro_img_01.after_show {
+  position: absolute;
+  top: 0;
+  left: -80px;
+  width: 140%;
+  height: 808px;
+  background-image: url('../assets/image/section/game_intro/fifa/fifa_intro_bg.png');
+  background-position-x: -30px;
+  opacity: 1;
+  z-index: 999;
+}
+
+.fifa .inner .contents {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.fifa .contents .game_image {
+  margin-bottom: 40px;
+  width: 800px;
+  height: 150px;
+  background-image: url("../assets/image/section/game_intro/fifa/fifa_logo_02.png");
+  background-size: contain;
+  background-position: right;
+}
+
+.fifa .contents .intro_title {
+  margin-bottom: 109px;
+  text-align: right;
+}
+
+.fifa .intro_title h4 {
+  margin-bottom: 26px;
+  font-size: 27px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.fifa .intro_title p {
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1.23;
+  color: #fff;
+}
+
+.fifa .contents .intro_desc {
+  display: flex;
+  gap: 30px;
+  color: #fff;
+}
+
+.fifa .intro_desc .left {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.fifa .intro_desc .top {
+  position: relative;
+  display: flex;
+  margin-bottom: 10px;
+  flex-direction: column;
+}
+
+.fifa .intro_desc .top::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  display: block;
+  width: 2px;
+  height: 190px;
+  background-color: #f98702;
+}
+
+.fifa .top h4 {
+  margin: 30px 0 15px 0;
+  font-size: 23px;
+  font-weight: 500;
+}
+
+.fifa .top p {
+  margin-bottom: 59px;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.26666;
+}
+
+.fifa .top .small_btn {
+  display: block;
+  font-weight: 100;
+}
+
+.fifa .top .small_btn:nth-of-type(1) {
+  margin-bottom: 10px;
+  font-size: 13px;
+  text-align: right;
+}
+
+.fifa .top .small_btn:last-child {
+  font-size: 11px;
+}
+
+.fifa .intro_desc .bottom {
+  display: flex;
+  gap: 30px;
+}
+
+.fifa .bottom figure {
+  flex: 1;
+  height: 194px;
+}
+
+.fifa .bottom .screen_01 {
+  background-image: url('../assets/image/section/game_intro/fifa/fifa_01.jpg');
+  background-position-x: -85px;
+}
+
+.fifa .bottom .screen_02 {
+  background-image: url('../assets/image/section/game_intro/fifa/fifa_04.jpg');
+}
+
+.fifa .intro_desc .right {
+  position: relative;
+  flex: 1;
+  background-image: url('../assets/image/section/game_intro/fifa/fifa_05.jpg');
+  transition: 0.5s;
+}
+
+.fifa .right:before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  transition: 0.5s;
+}
+
+.fifa .right .btn_box {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 50px;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.fifa .btn {
+  padding: 18px 25px;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+  background-color: #f98702;
+}
+
+.fifa .btn_box .purchase {
+  background-color: #00202b;
+  color: #fff;
+}
+
+.fifa .btn_box .dlc {
+  background-color: #fff;
+  color: #00202b;
+}
+
+.fifa .right:hover .btn_box {
+  opacity: 1;
+}
+
+.fifa .right:hover::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.fifa .btn:first-child {
+  margin-bottom: 30px;
+}
+
+.fifa>.btn {
+  margin: 30px auto 0 auto;
+  border-radius: 50px;
+  border: 1px solid #ddd;
+  width: 210px;
+  background: transparent;
+  color: #ddd;
+  animation: flash 1s 3s infinite;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.fifa>.btn.go {
+  opacity: 1;
+}
+
+@keyframes flash {
+  from {
+    background-color: transparent;
+  }
+
+  to {
+    background-color: #ddd;
+    color: #333;
+  }
+}
+
+/* SECTION EA GAMES CSS CODE */
+main .ea_games {
+  position: relative;
+  padding: 100px 0;
+  height: 100vh;
+  letter-spacing: -0.025em;
+  background-color: #fff;
+}
+
+.ea_games .container {
+  width: 1200px;
+}
+
+.ea_games .container h3 {
+  margin-bottom: 25px;
+  font-size: 23px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.ea_games .container .other_games_set {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 51px;
+}
+
+.ea_games .norm {
+  position: relative;
+}
+
+.ea_games .norm::before {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  transition: 0.5s;
+}
+
+.ea_games .game_btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.ea_games .norm:hover .game_btn {
+  opacity: 1;
+}
+
+.ea_games .norm:hover::before {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.ea_games .other_games_set .top_set {
+  display: flex;
+  gap: 30px;
+}
+
+.ea_games .top_set .bg_set {
+  flex: 1;
+  height: 316px;
+}
+
+.ea_games .top_set .ea_game_img_01 {
+  background-image: url('../assets/image/section/other_game/game_title/other_game_01.jpg');
+}
+
+.ea_games .ea_game_img_01 .game_logo_01 {
+  width: 48%;
+  height: 42%;
+  background-image: url('../assets/image/section/other_game/game_logo/other_game_01_logo.svg');
+}
+
+.ea_games .top_set .ea_game_img_02 {
+  background-image: url('../assets/image/section/other_game/game_title/other_game_02.jpg');
+}
+
+.ea_games .ea_game_img_02 .game_logo_02 {
+  width: 92%;
+  height: 16%;
+  background-image: url('../assets/image/section/other_game/game_logo/other_game_02_logo.png');
+}
+
+.ea_games .top_set .ea_game_img_03 {
+  background-image: url('../assets/image/section/other_game/game_title/other_game_03.jpg');
+}
+
+.ea_games .ea_game_img_03 .game_logo_03 {
+  width: 76%;
+  height: 14%;
+  background-image: url('../assets/image/section/other_game/game_logo/other_game_03_logo.svg');
+}
+
+.ea_games .top_set .ea_game_img_04 {
+  background-image: url('../assets/image/section/other_game/game_title/other_game_04.jpg');
+}
+
+.ea_games .ea_game_img_04 .game_logo_04 {
+  width: 55%;
+  height: 36%;
+  background-image: url('../assets/image/section/other_game/game_logo/other_game_04_logo.svg');
+}
+
+.ea_games .other_games_set .bottom_set {
+  display: flex;
+  gap: 30px;
+}
+
+.ea_games .bottom_set .bg_set {
+  flex: 1;
+  height: 316px;
+}
+
+.ea_games .bottom_set .ea_game_img_05 {
+  background-image: url('../assets/image/section/other_game/game_title/other_game_05.jpg');
+}
+
+.ea_games .ea_game_img_05 .game_logo_05 {
+  width: 78%;
+  height: 31%;
+  background-image: url('../assets/image/section/other_game/game_logo/other_game_05_logo.svg');
+}
+
+.ea_games .bottom_set .ea_game_img_06 {
+  background-image: url('../assets/image/section/other_game/game_title/other_game_06.jpg');
+}
+
+.ea_games .ea_game_img_06 .game_logo_06 {
+  width: 75%;
+  height: 42%;
+  background-image: url('../assets/image/section/other_game/game_logo/other_game_06_logo.svg');
+}
+
+.ea_games .bottom_set .ea_game_img_07 {
+  background-image: url('../assets/image/section/other_game/game_title/other_game_07.png');
+}
+
+.ea_games .ea_game_img_07 .game_logo_07 {
+  width: 91%;
+  height: 23%;
+  background-image: url('../assets/image/section/other_game/game_logo/other_game_07_logo.svg');
+}
+
+.ea_games .bottom_set .ea_game_img_08 {
+  background-image: url('../assets/image/section/other_game/game_title/other_game_08.jpg');
+}
+
+.ea_games .ea_game_img_08 .game_logo_08 {
+  width: 48%;
+  height: 9%;
+  background-image: url('../assets/image/section/other_game/game_logo/other_game_08_logo.svg');
+}
+
+.ea_games .btn {
+  margin: 0 auto;
+  padding: 18px 80px;
+  width: 270px;
+  font-size: 17px;
+  font-weight: 400;
+  background-color: #ff9a3a;
+}
+
+/* SECTION EA_PLAY CSS CODE */
+main .ea_play {
+  position: relative;
+  padding: 100px 0;
+  color: #fff;
+  letter-spacing: -0.025em;
+  background-image: url('../assets/image/section/ea_play/ea_play.jpg');
+}
+
+.ea_play .container {
+  width: 1200px;
+}
+
+.ea_play .container h2 {
+  margin-bottom: 20px;
+  width: 15%;
+  height: 62px;
+}
+
+.ea_play h3 {
+  margin-bottom: 30px;
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.17391;
+}
+
+.ea_play p {
+  margin-bottom: 35px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.13333;
+}
+
+.ea_play .btn {
+  padding: 16px 46px;
+  width: 18%;
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+  color: #333;
+  background-color: #ff9a3a;
+}
+
+/* SECTION EA_NEWS CSS CODE */
+main .ea_news {
+  position: relative;
+  padding: 100px 0;
+  background-color: #fff;
+  color: #333;
+  letter-spacing: -0.025em;
+}
+
+.ea_news .container {
+  width: 1200px;
+}
+
+.ea_news .container h3 {
+  margin-bottom: 38px;
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+  text-align: center;
+}
+
+.ea_news .container .news_box {
+  display: flex;
+  gap: 30px;
+}
+
+.ea_news .news_box .card_news {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.ea_news .card_news .bg_set {
+  height: 235px;
+}
+
+.ea_news .card_news .news_desc {
+  padding: 20px 18px;
+  background-color: #f9f9f9;
+  flex-grow: 1;
+}
+
+.ea_news .news_desc .top {
+  margin-bottom: 13px;
+}
+
+.ea_news .news_desc .top strong {
+  margin-right: 24px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #ff9a3a;
+}
+
+.ea_news .news_desc .top span {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.ea_news .news_desc h4 {
+  margin-bottom: 26px;
+  width: 340px;
+  height: 20px;
+  font-size: 19px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.ea_news .news_desc p {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.26666;
+}
+
+.ea_news .card_news .news_img_01 {
+  background-image: url('../assets/image/section/news/ea_news_01.jpg');
+}
+
+.ea_news .card_news .news_img_02 {
+  background-image: url('../assets/image/section/news/ea_news_02.jpg');
+
+}
+
+.ea_news .card_news .news_img_03 {
+  background-image: url('../assets/image/section/news/ea_news_03.jpg');
+}
+
+.ea_news .container>i {
+  display: none;
+}
+
+/* FOOTER CSS CODE */
+#footer {
+  padding: 100px 0;
+  background-color: #f9f9f9;
+  color: #333;
+  letter-spacing: -0.025em;
+}
+
+#footer .top_footer {
+  padding-bottom: 25px;
+  border-bottom: 1px solid #d3d3d3;
+}
+
+#footer .top_footer .container {
+  display: flex;
+  justify-content: space-between;
+  width: 1200px;
+}
+
+#footer .top_footer .container .top_footer_list {
+  /* outline: 1px solid #000; */
+  display: flex;
+  align-items: flex-end;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+#footer .top_footer_list li {
+  position: relative;
+}
+
+#footer .top_footer_list li~li a {
+  display: block;
+  padding: 0 10px;
+}
+
+#footer .top_footer_list li:first-child a {
+  padding-right: 10px;
+}
+
+#footer .top_footer_list li:nth-child(-n+5)::after {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 100%;
+  display: block;
+  width: 1px;
+  height: 12px;
+  background-color: #ddd;
+}
+
+#footer .ea_sns dt {
+  margin-bottom: 20px;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+}
+
+#footer .ea_sns div {
+  display: flex;
+  justify-content: right;
+}
+
+#footer .ea_sns dd {
+  font-size: 15px;
+}
+
+#footer .ea_sns dd:nth-child(-n+4) {
+  padding-right: 20px;
+}
+
+#footer .bottom_footer .container {
+  padding-top: 25px;
+  width: 1200px;
+}
+
+#footer .bottom_footer .bottom_footer_list {
+  display: flex;
+  margin-bottom: 80px;
+}
+
+#footer .bottom_footer_list li a {
+  display: block;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+#footer .bottom_footer_list li:first-child a {
+  padding-right: 11px;
+}
+
+#footer .bottom_footer_list li~li a {
+  padding: 0 11px;
+}
+
+#footer .bottom_footer .under_box {
+  display: flex;
+  justify-content: space-between;
+}
+
+#footer .under_box .left .law_list {
+  /* outline: 1px solid #000; */
+  display: flex;
+  margin-bottom: 10px;
+}
+
+#footer .left .law_list li a {
+  display: block;
+  font-size: 11px;
+  font-weight: 300;
+}
+
+#footer .left .law_list li:first-child a {
+  padding-right: 8px;
+}
+
+#footer .left .law_list li~li a {
+  padding: 0 8px;
+}
+
+#footer .left .service_list {
+  display: flex;
+  margin-bottom: 32px;
+}
+
+#footer .left .service_list li a {
+  display: block;
+  font-size: 11px;
+  font-weight: 300;
+}
+
+#footer .left .service_list li:first-child a {
+  padding-right: 8px;
+}
+
+#footer .left .service_list li~li a {
+  padding: 0 8px;
+}
+
+#footer .left span {
+  font-size: 9px;
+  font-weight: 100;
+}
+
+#footer .bottom_footer .right {
+  display: flex;
+  gap: 30px;
+}
+
+#footer .right .origin_img {
+  width: 206px;
+  height: 73px;
+}
+
+#footer .right .ea_img {
+  width: 76px;
+  height: 76px;
+}
+
+@media screen and (max-width: 768px) {
+  .bg_set {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .sticky {
+    position: static;
+  }
+
+  .scroll_up {
+    display: none;
+  }
+
+  /* HEADER CSS CODE */
+  #header {
+    position: realtive;
+    color: #333;
+  }
+
+  #header .gnb {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    z-index: 1000;
+    width: 60vw;
+    height: 100vh;
+    background-color: #fff;
+    transition: 1s;
+  }
+
+  #header .gnb.res_show {
+    left: 0;
+  }
+
+  #header .only_ipad_tab {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.2%;
+    background-color: #000;
+    color: #fff;
+  }
+
+  .only_ipad_tab h2 {
+    margin: 0 auto 0 1%;
+    padding: 2.5% 0;
+    width: 7%;
+    line-height: 150%;
+  }
+
+  .only_ipad_tab h2 img {
+    transform: translateY(7%);
+  }
+
+  .only_ipad_tab .ipad_main_menu {
+    display: flex;
+    padding: 2.5% 0;
+    font-size: 3vw;
+    line-height: 150%;
+  }
+
+  .only_ipad_tab .ipad_main_menu li a {
+    display: block;
+    padding: 10px 5px;
+  }
+
+  .only_ipad_tab .res_btn {
+    display: block;
+    border-radius: 100%;
+  }
+
+  .only_ipad_tab .res_box {
+    position: fixed;
+    top: 9%;
+    right: 3%;
+    z-index: 999;
+    padding: 1%;
+    border-radius: 100%;
+    background-color: rgba(0,0,0, 0.5);       
+  }
+
+  .gnb {
+    position: relative;
+  }
+
+  .gnb .container {
+    flex-direction: column;
+    width: auto;
+  }
+
+  .gnb .container h1 {
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15%;
+  }
+
+  .gnb .container .main_menu {
+    position: absolute;
+    width: 90%;
+    flex-direction: column;
+    margin: 25% 0 0 5%;
+  }
+
+  .gnb .main_menu i {
+    display: block;
+    position: absolute;
+    top: -70px;
+    right: 0;
+    cursor: pointer;
+  }
+
+  .gnb .container .main_menu a {
+    border-bottom: 1px solid #a9a9a9;
+    padding: 24px 40px 24px 0;
+  }
+
+  .gnb .container .side_menu {
+    display: none;
+  }
+
+  #header .main_slider {
+    width: auto;
+  }
+
+  .main_slider .bg_01 {
+    background-position: 80% 0;
+    background-size: auto;
+  }
+
+  .main_slider .bg_01 .slogan_box {
+    right: 25%;
+  }
+
+  .main_slider .slogan_box h3 {
+    margin-bottom: 15px;
+    font-size: 23px;
+  }
+
+  .main_slider .slogan_box strong {
+    margin-bottom: 30px;
+    font-size: 17px;
+  }
+
+  .main_slider .slogan_box .btn_box {
+    gap: 15px;
+  }
+
+  .main_slider .slogan_box .btn {
+    font-size: 15px;
+  }
+
+  .main_slider .slogan_box .left {
+    padding: 15px 40px;
+  }
+
+  .main_slider .slogan_box .right {
+    padding: 15px 23px;
+  }
+
+  .main_slider .bg_02 {
+    background-position: 70% 0;
+  }
+
+  .main_slider .bg_02 .slogan_box {
+    top: 50%;
+    left: 3%;
+    transform: translateY(-50%);
+  }
+
+  .main_slider .bg_03 {
+    background-image: url('../assets/image/header/header_test.jpg');
+    background-position-y: -29px;
+    background-size: cover;
+  }
+
+  .main_slider .bg_03 .slogan_box {
+    top: auto;
+    left: 0;
+    bottom: 50px;
+    transform: translateX(6%);
+    /* padding: 30% 0 0 0; */
+    text-align: right;
+    color: #ddd;
+  }
+
+  .main_slider .bg_03 .slogan_box h3 {
+    margin-bottom: 15px;
+    transform: translateY(40%);
+  }
+
+  .main_slider .bg_03 .slogan_box strong {
+    margin-bottom: 30px;
+  }
+
+  .main_slider .bg_03 .btn_box {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .main_slider .slick-dots {
+    display: none !important;
+  }
+
+  /* SECTION BRAND_INTRO CSS CODE */
+  main .brand_intro {
+    padding: 50px 0;
+  }
+
+  .brand_intro .container {
+    width: auto;
+  }
+
+  .brand_intro .img_box {
+    display: none;
+  }
+
+  .brand_intro .container h3 {
+    margin-bottom: 35px;
+    font-size: 23px;
+  }
+
+  .brand_intro .top_intro {
+    padding: 3%;
+    width: auto;
+  }
+
+  .brand_intro .top_intro::before {
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    height: 1px;
+  }
+
+  .brand_intro .top_intro h4 {
+    margin-bottom: 15px;
+    font-size: 2.8vw;
+    text-align: left;
+  }
+
+  .brand_intro .top_intro p {
+    font-size: 13px;
+    text-align: left;
+  }
+
+  .brand_intro .bottom_intro {
+    margin: 0 auto;
+    padding: 3%;
+    width: auto;
+  }
+
+  .brand_intro .bottom_intro::before {
+    top: 19%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    height: 1px;
+  }
+
+  .brand_intro .bottom_intro h4 strong {
+    font-size: 17px;
+  }
+
+  .brand_intro h4 a {
+    font-size: 9px;
+  }
+
+  .brand_intro .bottom_intro h4 a i {
+    font-size: 7px;
+  }
+
+  .brand_intro .bottom_intro p {
+    margin-bottom: 45px;
+    font-size: 13px;
+  }
+
+  .brand_intro .bottom_intro .btn_box {
+    gap: 15px;
+  }
+
+  .brand_intro .btn_box .btn {
+    font-size: 11px;
+  }
+
+  .brand_intro .btn_box .btn {
+    padding: 15px 5px;
+  }
+
+  /* SECTION SIMS CSS CODE */
+  main .sims {
+    padding: 50px 0;
+    height: 100%;
+  }
+
+  .sims .inner .intro_img_01 {
+    display: none;
+  }
+
+  .sims .contents .game_image {
+    margin: 0 auto 15px auto;
+    width: 80%;
+    background-position: center top;
+  }
+
+  .sims .contents .intro_title {
+    margin-bottom: 50px;
+    text-align: center;
+  }
+
+  .sims .intro_title h4 {
+    margin-bottom: 15px;
+    font-size: 2.5vw;
+  }
+
+  .sims .intro_title p {
+    font-size: 2.1vw;
+  }
+
+  .sims .contents .intro_desc {
+    gap: 20px;
+    padding: 0 5%;
+    height: 300px;
+  }
+
+  .sims .intro_desc .top::before {
+    display: none;
+  }
+
+  .sims .top h4 {
+    font-size: 2.5vw;
+  }
+
+  .sims .top p {
+    font-size: 1.5vw;
+  }
+
+  .sims .top .small_btn:nth-of-type(1),
+  .sims .top .small_btn:nth-of-type(2) {
+    font-size: 1.2vw;
+  }
+
+  .sims .left .bottom {
+    gap: 15px;
+    height: 50%;
+  }
+
+  .sims .left .bottom figure {
+    height: 100%;
+  }
+
+  .sims .right:hover::before {
+    display: none;
+  }
+
+  .sims .right .btn_box {
+    top: 62%;
+    left: 50%;
+    width: 70%;
+    transform: translateX(-50%);
+    padding: 0;
+    opacity: 1;
+  }
+
+  .sims .right .btn_box a {
+    padding: 10px;
+    width: 100%;
+    font-size: 1.2vw;
+  }
+
+  .sims .right .btn_box a:first-child {
+    margin-bottom: 15%;
+  }
+
+  .sims .right .dlc {
+    background-color: #fff;
+    color: #f98702;
+  }
+
+  /* SECTION BTF CSS CODE */
+  main .btf {
+    padding: 50px 0;
+    height: 90%;
+    opacity: 1;
+    background: url('../assets/image/section/game_intro/battlefield/battlefield_section_Bg.jpg') no-repeat center center/cover;
+  }
+
+  .btf .inner {
+    flex-direction: row;
+  }
+
+  .btf .inner .contents {
+    gap: 20px;
+  }
+
+  .btf .inner .intro_img_01 {
+    display: none;
+  }
+
+  .btf .contents .game_image {
+    margin: 0 auto 30px auto;
+    width: 80%;
+    background-position: center top;
+  }
+
+  .btf .contents .intro_title {
+    margin-bottom: 45px;
+    text-align: center;
+  }
+
+  .btf .intro_title h4 {
+    margin-bottom: 15px;
+    font-size: 2.5vw;
+  }
+
+  .btf .intro_title p {
+    font-size: 2.1vw;
+  }
+
+  .btf .contents .intro_desc {
+    gap: 20px;
+    height: 300px;
+    padding: 0 5%;
+    /* transform: translateX(1%); */
+  }
+
+  .btf .intro_desc .top::before {
+    display: none;
+  }
+
+  .btf .top h4 {
+    font-size: 2.5vw;
+  }
+
+  .btf .top p {
+    margin-bottom: 39px;
+    font-size: 1.5vw;
+  }
+
+  .btf .top .small_btn:nth-of-type(1),
+  .btf .top .small_btn:nth-of-type(2) {
+    font-size: 1.2vw;
+  }
+
+  .btf .left .bottom {
+    gap: 15px;
+    height: 80%;
+  }
+
+  .btf .left .bottom figure {
+    height: 100%;
+  }
+
+  .btf .right:hover::before {
+    display: none;
+  }
+
+  .btf .right .btn_box {
+    top: 62%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0;
+    width: 70%;
+    opacity: 1;
+  }
+
+  .btf .right .btn_box a {
+    padding: 10px;
+    width: 100%;
+    font-size: 0.5vw;
+  }
+
+  .btf .right .btn_box a:first-child {
+    margin-bottom: 15%;
+  }
+
+  /* SECTION FIFA CSS CODE */
+  main .fifa {
+    justify-content: center;
+    margin-bottom: 0;
+    padding: 50px 0;
+    height: 100%;
+    opacity: 1;
+    color: #333;
+    background: url('../assets/image/section/game_intro/fifa/fifa_big_bg.jpg') no-repeat center center/cover;
+  }
+
+  .fifa .inner {
+    flex-direction: row;
+  }
+
+  .fifa .inner .cover_box {
+    display: none;
+  }
+
+  .fifa .inner .contents {
+    gap: 20px;
+  }
+
+  .fifa .inner .intro_img_01 {
+    display: none;
+  }
+
+  .fifa .contents .game_image {
+    margin: 0 auto 0 auto;
+    width: 80%;
+    background-position: center top;
+  }
+
+  .fifa .contents .intro_title {
+    margin-bottom: 50px;
+    text-align: center;
+  }
+
+  .fifa .intro_title h4 {
+    margin-bottom: 15px;
+    font-size: 2.5vw;
+  }
+
+  .fifa .intro_title p {
+    font-size: 2.1vw;
+  }
+
+  .fifa .contents .intro_desc {
+    gap: 20px;
+    /* transform: translateX(-2%); */
+    padding: 0 3%;
+    height: 300px;
+  }
+
+  .fifa .intro_desc .top::before {
+    display: none;
+  }
+
+  .fifa .top h4 {
+    font-size: 2.5vw;
+  }
+
+  .fifa .top p {
+    margin-bottom: 10%;
+    font-size: 1.5vw;
+  }
+
+  .fifa .top .small_btn:nth-of-type(1),
+  .fifa .top .small_btn:nth-of-type(2) {
+    font-size: 1.2vw;
+  }
+
+  .fifa .bottom {
+    gap: 15px;
+    height: 50%;
+  }
+
+  .fifa .bottom figure {
+    height: 100%;
+  }
+
+  .fifa .bottom .screen_01 {
+    background-position: center;
+  }
+
+  .fifa .intro_desc .right {
+    background-size: 100% 100%;
+  }
+
+  .fifa>.btn {
+    display: none;
+  }
+
+  .fifa .right:hover::before {
+    display: none;
+  }
+
+  .fifa .right .btn_box {
+    top: 62%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0;
+    width: 70%;
+    opacity: 1;
+  }
+
+  .fifa .right .btn_box a {
+    padding: 10px;
+    width: 100%;
+    font-size: 0.5vw;
+  }
+
+  .fifa .right .btn_box a:first-child {
+    margin-bottom: 15%;
+  }
+
+  /* SECTION EA GAMES CSS CODE */
+  main .ea_games {
+    position: static;
+    padding: 50px 30px;
+    height: 100%;
+  }
+
+  .ea_games .container {
+    width: auto;
+  }
+
+  .ea_games .container h3 {
+    font-size: 2.2vw;
+  }
+
+  .ea_games .container .other_games_set {
+    gap: 20px;
+  }
+
+  .ea_games .other_games_set .top_set {
+    gap: 20px;
+  }
+
+  .ea_games .top_set .game_btn,
+  .bottom_set .game_btn {
+    bottom: 0;
+    width: 90%;
+    height: 30%;
+    background-size: contain;
+    opacity: 1;
+  }
+
+  .ea_games .norm::before {
+    display: none;
+  }
+
+  .ea_games .other_games_set .bottom_set {
+    gap: 20px;
+  }
+
+  .ea_games .btn {
+    padding: 15px;
+    width: 30%;
+    font-size: 1.5vw;
+    text-align: center;
+  }
+
+  /* SECTION EA_PLAY CSS CODE */
+  main .ea_play {
+    padding: 50px 0;
+  }
+
+  .ea_play .container {
+    width: auto;
+  }
+
+  .ea_play .container h2 {
+    /* outline: 1px solid #fff; */
+    margin: 0 auto 5px auto;
+    width: 50%;
+    height: 100%;
+    transform: translateX(12%);
+  }
+
+  .ea_play h3 {
+    text-align: center;
+    font-size: 3vw;
+    line-height: 1.4;
+  }
+
+  .ea_play p {
+    text-align: center;
+    font-size: 2vw;
+    line-height: 1.5;
+  }
+
+  .ea_play .btn {
+    margin: 0 auto;
+    border-radius: 30px;
+    border: none;
+    padding: 3%;
+    width: 30%;
+    font-size: 2vw;
+    font-weight: 700;
+    color: #333;
+    background-color: #ff9a3a;
+    ;
+  }
+
+  /* SECTION EA_NEWS CSS CODE */
+  main .ea_news {
+    position: static;
+    padding: 50px 0;
+  }
+
+  .ea_news .container {
+    position: relative;
+    width: auto;
+  }
+
+  .ea_news .container h3 {
+    margin-bottom: 25px;
+    font-size: 2.9vw;
+  }
+
+  .ea_news .container .news_box {
+    flex-direction: column;
+    padding: 0 20%;
+  }
+
+  .ea_news .card_news .news_desc {
+    padding: 6%;
+  }
+
+  .ea_news .news_desc .top strong,
+  .ea_news .news_desc .top span {
+    font-size: 1.5vw;
+  }
+
+  .ea_news .news_desc h4 {
+    width: auto;
+    font-size: 2.5vw;
+  }
+
+  .ea_news .news_desc p {
+    font-size: 2vw;
+  }
+
+  .ea_news .container>i {
+    position: absolute;
+    display: block;
+    font-size: 9vw;
+    cursor: pointer;
+    z-index: 999;
+  }
+
+  .ea_news .container>i:nth-of-type(1) {
+    top: 50%;
+    left: 6%;
+    transform: trnaslateY(-50%);
+  }
+
+  .ea_news .container>i:nth-of-type(2) {
+    top: 50%;
+    right: 6%;
+    transform: trnaslateY(-50%);
+  }
+
+
+  /* FOOTER CSS CODE */
+  #footer {
+    padding: 10%;
+  }
+
+  #footer .top_footer {
+    padding-bottom: 5vw;
+  }
+
+  #footer .top_footer .container {
+    width: auto;
+  }
+
+  #footer .bottom_footer .container {
+    position: relative;
+    width: auto;
+  }
+
+  #footer .top_footer .container .top_footer_list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    font-size: 2vw;
+  }
+
+  #footer .top_footer_list a {
+    padding: 0 10px;
+  }
+
+  #footer .top_footer_list li:nth-child(-n+5)::after {
+    display: none;
+  }
+
+  #footer .ea_sns dt {
+    margin-bottom: 10%;
+    font-size: 2vw;
+  }
+
+  #footer .ea_sns dd {
+    font-size: 1.8vw;
+  }
+
+  #footer .bottom_footer .container {
+    padding-top: 5vw;
+    width: auto;
+  }
+
+  #footer .bottom_footer .bottom_footer_list {
+    justify-content: space-between;
+    margin-bottom: 1%;
+    padding: 0 2.5%;
+  }
+
+  #footer .bottom_footer .bottom_footer_list li a {
+    padding: 0;
+    font-size: 1.5vw;
+  }
+
+  #footer .under_box .left .law_list {
+    display: none;
+  }
+
+  #footer .left .service_list {
+    display: none;
+  }
+
+  #footer .left span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateX(5%);
+    display: block;
+  }
+
+  #footer .bottom_footer .right {
+    justify-content: space-between;
+    margin: 0 auto 0 0;
+    padding: 8% 0;
+    width: 100%;
+  }
+
+  #footer .right .origin_img {
+    width: 40%;
+  }
+
+  #footer .right .ea_img {
+    width: 15%;
+  }
+}
