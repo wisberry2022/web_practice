@@ -35,7 +35,8 @@ $(function () {
     autoplay: true,
   });
 
-  $('.ea_news .news_box').slick({
+
+  $('.ea_news .news_box').not('.slick-initialized').slick({
     responsive: [
       {
         breakpoint: 768,
@@ -51,8 +52,8 @@ $(function () {
     ]
   });
 
-  $(window).resize(function () {
-    $('.ea_news .news_box').slick({
+  function ea_news_slick() {
+    $('.ea_news .news_box').not('.slick-initialized').slick({
       responsive: [
         {
           breakpoint: 768,
@@ -67,7 +68,9 @@ $(function () {
         }
       ]
     });
-  })
+  }
+
+  $(window).on('resize', ea_news_slick);
 
 
   $('.ea_news .container>i:nth-of-type(1)').on('click', function () {
