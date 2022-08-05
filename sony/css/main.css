@@ -42,15 +42,17 @@ html {
 
 /* MAIN_VISUAL CSS CODE */
 .main_visual {
+  outline: 1px solid #000;
   position: relative;
   width: 100%;
-  height: 102.3vh;
+  height: 100vh;
   letter-spacing: -0.025em;
+  overflow: hidden;
 }
 
 .main_visual .slick-dots {
   position: absolute;
-  bottom: 6rem;
+  bottom: 3.6rem;
   right: 18.5rem;
   z-index: 9999;
 }
@@ -68,7 +70,7 @@ html {
 .main_visual .tiny_btn {
   display: block;
   position: absolute;
-  bottom: 5.2rem;
+  bottom: 13.2rem;
   right: 4.4rem;
   z-index: 999;
   border-radius: 50px;
@@ -189,13 +191,12 @@ html {
 #header .left_menu {
   position: absolute;
   top: 0;
-  left: -150rem;
-  /* padding: 2.5rem; */
+  left: -200rem;
   padding: 8%;
   width: 80%;
-  height: 102.3vh;
+  height: 100vh;
   background: #000;
-  transition: 0.5s;
+  transition: 0.8s;
 }
 
 #header .left_menu.show_on {
@@ -272,7 +273,6 @@ html {
 }
 
 #main .sony_product {
-  height: 100vh;
   background-color: #fff;
 }
 
@@ -1033,7 +1033,6 @@ html {
 }
 
 .academy .schedule .left .monthly:nth-of-type(3) {
-  /* border-bottom: 0.1rem solid #ddd; */
   background-color: #ffffff;
 }
 
@@ -1042,7 +1041,6 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* border-bottom: 0.1rem solid #ddd; */
   padding: 0 2.5rem;
 }
 
@@ -1066,8 +1064,9 @@ html {
 
 .academy .middle a {
   position: absolute;
-  top: 45%;
+  top: 50%;
   right: 5%;
+  transform: translateY(-50%);
   border-radius: 100%;
   width: 4rem;
   height: 4rem;
@@ -1171,7 +1170,7 @@ html {
   overflow: hidden;
   font-size: 1.5rem;
   font-weight: 500;
-  text-align: center;
+  text-align: left;
 }
 
 .academy .right .slot .lec_desc dd {
@@ -1364,5 +1363,3 @@ html {
 #footer .follow_set .sns_box>* {
   font-size: 2.3rem;
 }
-
-/* #footer .container . */
