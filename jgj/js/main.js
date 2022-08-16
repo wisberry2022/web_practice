@@ -5,6 +5,16 @@ $(function () {
     $('html, body').animate({ scrollTop: destination }, time);
   }
 
+  // 스크롤 금지 함수
+  function disableScroll(obj) {
+    $(obj).addClass('hidden');
+  }
+
+  // 스크롤 금지 해제 함수
+  function enableScroll(obj) {
+    $(obj).removeClass('hidden');
+  }
+
   $('header .main_slider').slick({
     arrows: false,
     dots: true,
@@ -15,6 +25,12 @@ $(function () {
     arrows: false,
     autoplay: true,
     slidesToShow: 4,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: { slidesToShow: 1 }
+      }
+    ]
   });
 
   $('header .main_slider').on('afterChange', function (e, s, c) {
@@ -26,11 +42,17 @@ $(function () {
   });
 
   $(window).on('scroll', function () {
-    if ((($('.wb_intro').offset().top - $(this).scrollTop()) <= 100) && (($('.wb_intro').offset().top - $(this).scrollTop()) >= -500)) {
-      $('.wb_intro .container .letter').fadeIn(1000);
+    var screenWidth = $(this).width();
+    if (screenWidth <= 768) {
+      $('.wb_intro .container .letter').css('display', 'none');
     } else {
-      $('.wb_intro .container .letter').fadeOut(1000);
+      if ((($('.wb_intro').offset().top - $(this).scrollTop()) <= 100) && (($('.wb_intro').offset().top - $(this).scrollTop()) >= -500)) {
+        $('.wb_intro .container .letter').fadeIn(1000);
+      } else {
+        $('.wb_intro .container .letter').fadeOut(1000);
+      }
     }
+
   });
 
   $('.wb_intro .target').on('click', function () {
@@ -60,13 +82,23 @@ $(function () {
     $('.media .right').eq(idx).addClass('on').siblings().removeClass('on');
   })
 
-  $('.mbtn').on('click', function() {
+  $('.mbtn').on('click', function () {
     $('header .container .gnb').toggleClass('rpsv');
   });
 
-  $('header .main_menu>li').on('click', function() {
+  $('header .main_menu>li').on('click', function () {
     var idx = $(this).index();
     $('.main_menu>li').eq(idx).toggleClass('rpsv').siblings().removeClass('rpsv');
+  });
+
+  $('html, body').on('scroll touchmove mousewheel', function (event) {
+    if ($('.gnb').hasClass('rpsv')) {
+      $('html, body').css('overflow', 'hidden');
+      $('html, body').css('height', '100%');
+    } else {
+      $('html, body').css('overflow', '');
+      $('html, body').css('height', '');
+    }
   });
 
 })
