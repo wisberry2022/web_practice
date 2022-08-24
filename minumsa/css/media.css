@@ -6,7 +6,7 @@
   /* HEADER CSS CODE */
   #header {
     position: relative;
-    height: 100vh;
+    height: auto;
   }
 
   #header .mbtn {
@@ -89,15 +89,15 @@
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    margin-bottom: 3.5rem;
+    margin-bottom: 0;
     width: auto;
     height: 60rem;
   }
 
   #header .firstVisual {
-    margin: 0;
+    margin: 0 0 1.5rem 0;
     width: 50%;
-    height: 42rem;
+    height: 70%;
     box-shadow: 0.6rem 0.6rem 0.7rem rgba(0, 0, 0, 0.25);
   }
 
@@ -105,10 +105,7 @@
     display: flex;
     gap: 2rem;
     justify-content: center;
-    position: absolute;
-    bottom: 5%;
-    left: 50%;
-    transform: translateX(-50%);
+    margin-bottom: 0;
   }
 
   #header .book_img_set figure {
@@ -116,10 +113,6 @@
   }
 
   #header .book_desc {
-    position: absolute;
-    top: 61%;
-    left: 50%;
-    transform: translateX(-50%);
     margin: 0 auto;
     width: 100%;
     text-align: center;
@@ -153,8 +146,12 @@
   .new_book .sub_info .icon_menu {
     justify-content: center;
     flex-wrap: wrap;
-    padding: 2.9rem 0;
+    padding: 2.9rem 0 0 0;
     width: auto;
+  }
+
+  .new_book .icon_menu li {
+    margin-bottom: 2.9rem;
   }
 
   .new_book .icon_menu li a {
@@ -162,9 +159,9 @@
     width: 10rem;
   }
 
-  .new_book .icon_menu li:first-child~li:nth-child(3) {
+  /* .new_book .icon_menu li:first-child~li:nth-child(3) {
     margin-bottom: 3rem;
-  }
+  } */
 
   .new_book .icon_menu figure {
     margin: 0 auto 0.5rem auto;
