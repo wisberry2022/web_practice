@@ -1,5 +1,16 @@
 window.addEventListener('DOMContentLoaded', function () {
-  // HEADER JS CODE
+  function scrollDisable() {
+    document.querySelector('body').style.height = '100%';
+    document.querySelector('body').style.minHeight = '100%';
+    document.querySelector('body').style.overflow = 'hidden';
+  }
+
+  function scrollEnable() {
+    document.querySelector('body').style.height = '';
+    document.querySelector('body').style.minHeight = '';
+    document.querySelector('body').style.overflow = '';
+  }
+
   const newBookSwiper = new Swiper(".bookSlider", {
     slidesPerView: 3,
     spaceBetween: 30,
@@ -27,6 +38,9 @@ window.addEventListener('DOMContentLoaded', function () {
       768: {
         slidesPerView: 4,
         spaceBetween: 20,
+        freeMode: true,
+        watchSlidesProgress: true,
+        loop: true,
       }
     }
   });
@@ -55,10 +69,53 @@ window.addEventListener('DOMContentLoaded', function () {
     }
   })
 
+  // HTMLCollection(유사배열)에 forEach 메소드 사용할 수 있게 하는 코드
+  HTMLCollection.prototype.forEach = Array.prototype.forEach;
+
+
+  // HEADER JS CODE
+  // 반응형 메뉴 버튼 클릭 이벤트
+  const MAIN_UL = document.querySelector('.main_menu');
+  const MBTN = document.querySelector('.mbtn');
+
+  // 탭 메뉴 열렸을 때 스크롤 방지 및 해제
+  MBTN.addEventListener('click', function (e) {
+    MAIN_UL.classList.toggle('on');
+    scrollDisable();
+    if (!(MAIN_UL.classList.contains('on'))) {
+      scrollEnable();
+      // 탭 메뉴 닫았을 시 이전에 부착되었던 .on 모두 해제하는 코드
+      MAIN_UL.children.forEach((elm) => {
+        elm.children[1].classList.remove('on');
+      })
+    }
+  })
+
+  // 반응형 메뉴 다단메뉴 이벤트
+  MAIN_UL.addEventListener('click', function (e) {
+    const CURRENT = e.target.parentNode.children[1];
+    // 두 번째 클릭 때에도 forEach메소드 실행 이후에도 HTML 요소에 .on 이 붙어있어야 한다
+    MAIN_UL.children.forEach((elm) => {
+      if (elm.children[1] != CURRENT) {
+        elm.children[1].classList.remove('on');
+      }
+    });
+    CURRENT.classList.toggle('on');
+  })
+
+  // window size 변경 시 서브 메뉴에 붙어있던 .on 제거하는 이벤트
+  window.addEventListener('resize', function () {
+    MAIN_UL.classList.remove('on');
+    MAIN_UL.children.forEach(elm => {
+      if (elm.children[1].classList.contains('on')) {
+        elm.children[1].classList.remove('on');
+      }
+    })
+  });
+
   const image_arr = ['./assets/image/header/header_book_01.jpg', './assets/image/header/header_book_02.jpg', './assets/image/header/header_book_03.jpg', './assets/image/header/header_book_04.jpg'];
 
   const FIG = document.querySelector('.book_img_set').children;
-  HTMLCollection.prototype.forEach = Array.prototype.forEach;
 
   const BOOK_IMG_LI = document.querySelector('.book_img_set');
   const BOOK_DESC_LI = document.querySelector('.book_desc');
@@ -102,26 +159,5 @@ window.addEventListener('DOMContentLoaded', function () {
         LITTOR_LIST[idx].classList.add('on');
       }
     })
-  })
-
-  // 반응형 메뉴 버튼 클릭 이벤트
-  const MAIN_UL = document.querySelector('.main_menu');
-  const MBTN = document.querySelector('.mbtn');
-
-  MBTN.addEventListener('click', function (e) {
-    MAIN_UL.classList.toggle('on');
-  })
-
-  // 반응형 메뉴 다단메뉴 이벤트
-  MAIN_UL.addEventListener('click', function (e) {
-    const CURRENT = e.target.parentNode.children[1];
-    // toggle 진행 시 두 번째 클릭 때에도 forEach메소드를 진행하고 난뒤라도 HTML 요소에 .on 이 붙어있어야 한다
-    MAIN_UL.children.forEach((elm) => {
-      if (elm.children[1] != CURRENT) {
-        elm.children[1].classList.remove('on');
-      }
-    });
-    CURRENT.classList.toggle('on');
-
   })
 });
