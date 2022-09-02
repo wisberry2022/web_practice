@@ -1,0 +1,1451 @@
+$bc: #212121;
+$fc: #ddd;
+$en_letter: 0.025em;
+
+// * {
+//   outline: 1px solid #fff;
+// }
+
+@mixin text-shorten {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+// HEADER CSS CODE
+#header {
+  height: 75vh;
+  background-image: linear-gradient(to bottom,
+      rgba(5, 18, 26, 0) 0,
+      rgba(33, 33, 33, 1) 100%,
+    ), url('../assets/image/header/header_bg_01.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  >.container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding-top: 1rem;
+    width: 120rem;
+
+    >* {
+      flex: 1px;
+    }
+
+    .gnb {
+      .main_menu {
+        display: flex;
+        margin-left: -1.5rem;
+
+        >li {
+          position: relative;
+
+          &:hover {
+            .sub_menu {
+              opacity: 1;
+              visibility: visible;
+            }
+          }
+
+          >a {
+            display: block;
+            padding: 0 1.5rem;
+            line-height: 5rem;
+            font-size: 1.7rem;
+          }
+
+          .sub_menu {
+            position: absolute;
+            top: 90%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 15rem;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.5s;
+            background-color: #181818;
+
+            li {
+              a {
+                display: block;
+                padding: 1rem 0;
+                border-bottom: 0.1rem solid $bc;
+                font-size: 1.5rem;
+                text-align: center;
+                color: #ddd;
+              }
+
+              &:last-child a {
+                border-bottom: none;
+              }
+
+            }
+          }
+        }
+      }
+    }
+
+    h1 {
+      text-align: center;
+      line-height: 5rem;
+    }
+
+    .side_menu {
+      $end_padding: 0.6rem;
+      display: flex;
+      justify-content: flex-end;
+      margin-right: -$end_padding;
+
+      li a {
+        display: block;
+        padding: 0 $end_padding;
+        line-height: 5rem;
+        font-size: 1.6rem;
+      }
+    }
+
+    .mbtn {
+      display: none;
+    }
+  }
+
+  .main_visual {
+
+    height: 100%;
+
+    .container {
+      position: relative;
+      height: 100%;
+
+      .program_desc {
+        display: none;
+        position: absolute;
+        top: 20%;
+
+        em {
+          display: block;
+          margin-bottom: 0.5rem;
+          font-size: 1.5rem;
+        }
+
+        h2 {
+          margin-bottom: 5rem;
+          font-size: 4.5rem;
+          font-weight: 600;
+        }
+
+        p {
+          margin-bottom: 2.5rem;
+          font-size: 2rem;
+          font-weight: 300;
+          line-height: 1.314;
+        }
+
+        .btn {
+          display: inline-block;
+          padding: 1rem 1.5rem;
+          font-size: 1.5rem;
+          background-color: #432;
+          text-align: center;
+        }
+      }
+
+      .program_desc.on {
+        display: block;
+      }
+
+      .control_box {
+        display: flex;
+        position: absolute;
+        bottom: 30%;
+
+        button {
+          border: none;
+          font-size: 2.3rem;
+          color: #ddd;
+          background-color: transparent;
+          cursor: pointer;
+        }
+
+        .slide_dots {
+          display: flex;
+          gap: 1rem;
+          margin: 0.3rem 0 0 4rem;
+
+          li {
+            border: 0.1rem solid #ddd;
+            border-radius: 100%;
+            width: 2rem;
+            height: 2rem;
+            font-size: 0;
+            transition: 0.5s;
+            cursor: pointer;
+
+            &.on {
+              border-radius: 1.5rem;
+              width: 5rem;
+              background-color: #fff;
+            }
+          }
+        }
+      }
+
+    }
+
+  }
+}
+
+#category {
+  padding: 2.5rem 0 10rem 0;
+
+  .container {
+
+    .title_box {
+      margin-bottom: 1.5rem;
+    }
+
+    .category_list {
+      display: flex;
+      justify-content: center;
+      margin: 0 auto 2.5rem auto;
+      width: 50%;
+
+      li {
+        &.on {
+          color: $bc;
+          background-color: $fc;
+        }
+
+        a {
+          display: block;
+          padding: 1rem 2.5rem;
+          font-size: 1.7rem;
+          font-weight: 400;
+          text-align: center;
+        }
+      }
+    }
+
+    @each $category in drama,
+    refine,
+    sports,
+    var {
+      @for $i from 1 through 5 {
+        .#{$category} .itm0#{$i} {
+          background-image: url('../assets/image/section/broadcast/#{$category}/#{$category}_0#{$i}.jpg');
+        }
+      }
+    }
+
+    .contents_box {
+      display: none;
+    }
+
+    .contents_box.on {
+      display: grid;
+      grid-template-columns: 30rem 55rem 30rem;
+      grid-template-rows: 40rem 40rem;
+      grid-gap: 2.5rem;
+
+      .box {
+        position: relative;
+        height: 40rem;
+
+        .btn_box {
+          display: none;
+        }
+
+        &:hover {
+          & .btn_box {
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            gap: 1.2rem;
+
+            figure {
+              margin-bottom: 1.2rem;
+              width: 100%;
+              height: 5rem;
+              background-size: contain;
+
+              &.l_icon {
+                background-image: url('../assets/image/icon/l_icon.png');
+              }
+
+              &.r_icon {
+                background-image: url('../assets/image/icon/r_icon.png');
+              }
+            }
+
+            .btn {
+              padding: 1rem;
+              width: 13rem;
+              font-size: 1.5rem;
+              text-align: center;
+            }
+          }
+
+          &::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+          }
+        }
+
+        &:nth-child(2) {
+          height: 82.5rem;
+        }
+
+        &:nth-child(5) {
+          grid-column-start: 3;
+        }
+
+      }
+    }
+  }
+}
+
+#news {
+  background-color: #181818;
+
+  .news_box {
+    display: grid;
+    grid-template-columns: 27rem 27rem 27rem 27rem;
+    grid-template-rows: 33rem;
+    grid-auto-rows: 33rem;
+    grid-gap: 3rem;
+
+    .box:first-child~.box {
+      padding: 3.5rem 0;
+    }
+
+    .box {
+      position: relative;
+      background-color: $bc;
+
+      &:first-child {
+        grid-column: 1/3;
+        padding: 1.5rem;
+
+        .title {
+          float: left;
+          padding: 0.5rem 0 0 1rem;
+          width: 48%;
+
+          h4 {
+            margin-bottom: 2rem;
+            font-size: 1.9rem;
+            font-weight: 700;
+          }
+
+          .title_pic {
+            margin-bottom: 2rem;
+            height: 25rem;
+            background-image: url('../assets/image/section/news/news_01.jpg');
+            background-size: cover;
+          }
+        }
+
+        .news_desc {
+          float: left;
+          margin: 11% 0 0 6.5%;
+          width: 45%;
+          text-align: left;
+
+          strong {
+            display: block;
+            margin-bottom: 1.5rem;
+            font-size: 2.3rem;
+            font-weight: 600;
+            text-align: left;
+            line-height: 1.353;
+          }
+
+          p {
+            margin-bottom: 4.5rem;
+            font-size: 1.3rem;
+            line-height: 1.45;
+          }
+
+          .btn_box {
+            display: flex;
+            gap: 1rem;
+
+            .btn {
+              display: inline-block;
+              padding: 1rem 1.5rem;
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
+
+      dl {
+        padding: 2rem;
+
+        dt {
+          position: relative;
+          margin-bottom: 4.5rem;
+          font-size: 2.1rem;
+          font-weight: 600;
+
+          &::after {
+            content: '';
+            position: absolute;
+            top: 150%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24rem;
+            height: 0.1rem;
+            background-color: #a9a9a9;
+          }
+        }
+
+        dd {
+          margin-bottom: 1rem;
+          border-bottom: 0.1rem solid #333;
+          padding: 0.5rem 0 0.5rem 0;
+          width: 100%;
+          @include text-shorten;
+          font-size: 1.5rem;
+          font-weight: 300;
+        }
+      }
+
+      .more {
+        position: absolute;
+        top: 18%;
+        right: 7%;
+        font-size: 1.9rem;
+      }
+    }
+  }
+}
+
+#sports {
+  height: 100vh;
+
+  .sports_intro {
+    display: flex;
+    gap: 0.1rem;
+
+    >figure {
+      flex: 1;
+      position: relative;
+      height: calc(100vh - 30rem);
+      cursor: pointer;
+
+      @mixin sports_hover {
+        .sports_box {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-top: 10rem;
+
+          figure {
+            margin: 0 auto 5rem auto;
+            width: 15rem;
+            height: 15rem;
+          }
+
+          @for $i from 1 through 4 {
+            .logo0#{$i} {
+              background-image: url('../assets/image/section/sports/logo_0#{$i}.png');
+            }
+          }
+
+          strong {
+            display: block;
+            margin-bottom: 1.5rem;
+            font-size: 2.6rem;
+            font-weight: 500;
+          }
+
+          p {
+            margin-bottom: 4.5rem;
+            font-size: 1.5rem;
+          }
+
+          .btn_box {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            .btn {
+              padding: 1rem;
+              font-size: 1.4rem;
+              text-align: center;
+            }
+          }
+        }
+      }
+
+      .sports_box {
+        display: none;
+      }
+
+      &:hover {
+        @include sports_hover;
+
+        @for $i from 1 through 4 {
+          &.itm0#{$i} {
+            background-image: linear-gradient(to bottom, rgba(5, 18, 26, 0.96) 90%,
+              rgba(33, 33, 33, 1) 100%),
+            url('../assets/image/section/sports/sports_bg_0#{$i}.jpg');
+          }
+        }
+      }
+    }
+
+    @for $i from 1 through 4 {
+      .itm0#{$i} {
+        background-image: linear-gradient(to bottom, rgba(5, 18, 26, 0) 10%,
+          rgba(33, 33, 33, 1) 100%),
+        url('../assets/image/section/sports/sports_bg_0#{$i}.jpg');
+      }
+    }
+  }
+}
+
+#notice {
+  @mixin title {
+    margin-bottom: 2.5rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: $en_letter;
+    text-align: center;
+  }
+
+  .container {
+    .info {
+      float: left;
+      padding: 4rem 0;
+      width: 58%;
+      background-color: #181818;
+
+      h4 {
+        @include title;
+        margin-bottom: 1.5rem;
+      }
+
+      p {
+        margin-bottom: 2.5rem;
+        font-size: 1.5rem;
+        font-weight: 400;
+        text-align: center;
+      }
+
+      .lnb {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto 3rem auto;
+        width: 50%;
+
+        li {
+          position: relative;
+
+          &.on {
+            background-color: #fff;
+            color: $bc;
+            font-weight: 500;
+          }
+
+          a {
+            display: block;
+            padding: 0 2rem;
+            font-size: 1.4rem;
+            font-size: 400;
+            line-height: 2.5rem;
+            text-align: center;
+          }
+        }
+
+      }
+
+      .tb_menu {
+        display: none;
+      }
+
+      .tb_menu.on {
+        margin: 0 auto;
+        width: 48rem;
+
+        display: grid;
+        grid-template-columns: 23rem 23rem;
+        grid-template-rows: 18rem;
+        grid-auto-rows: 18rem;
+        grid-gap: 2rem;
+
+        .box {
+          background-color: $bc;
+
+          figure {
+            margin: 0 auto 1.5rem auto;
+            height: 60%;
+          }
+
+          strong {
+            display: block;
+            margin: 0 auto;
+            width: 80%;
+            @include text-shorten;
+            font-size: 1.6rem;
+            font-weight: 300;
+            text-align: center;
+            line-height: 1.3;
+          }
+        }
+      }
+
+      @each $category in life,
+      food,
+      health,
+      house {
+        @for $i from 1 through 6 {
+          .#{$category} .itm0#{$i} {
+            background-image:url('../assets/image/section/notice/#{$category}/#{$category}_0#{$i}.jpg');
+          }
+        }
+      }
+    }
+
+    .notice_box {
+      float: right;
+      padding: 4rem;
+      width: 40%;
+      height: 79.5rem;
+      background-color: #181818;
+
+      h4 {
+        @include title;
+      }
+
+      .btn {
+        display: inline-block;
+        margin-left: 30%;
+        padding: 2rem;
+        font-size: 1.5rem;
+        text-align: center;
+      }
+
+      .notice_table {
+        margin-bottom: 7rem;
+
+        thead {
+          visibility: hidden;
+        }
+
+        tbody {
+          tr {
+            border-bottom: 0.1rem solid $bc;
+
+            td {
+              padding: 5rem 0 1rem 0;
+            }
+
+            .contents {
+              font-size: 1.5rem;
+              font-weight: 500;
+            }
+
+            .date {
+              font-size: 1.3rem;
+              font-weight: 300;
+            }
+
+          }
+        }
+      }
+    }
+  }
+}
+
+#footer {
+  padding: 3rem 0;
+  border-top: 0.1rem solid #181818;
+  background-color: #181818;
+
+  .top_footer {
+    padding: 1.5rem 0;
+    border-bottom: 0.1rem solid $bc;
+
+    .container {
+      h2 {
+        margin-bottom: 2.5rem;
+      }
+
+      .semi_container {
+        display: flex;
+        justify-content: space-between;
+
+        .tf_list {
+          display: flex;
+          margin-bottom: 2.5rem;
+
+          li {
+            position: relative;
+
+            &:first-child~li a {
+              padding-left: 2rem;
+            }
+
+            &:first-child~li::before {
+              content: '';
+              position: absolute;
+              top: 50%;
+              left: 1rem;
+              transform: translateY(-50%);
+              width: 0.1rem;
+              height: 1rem;
+              background-color: #555;
+
+            }
+
+            a {
+              display: block;
+              font-size: 1.4rem;
+              font-weight: 400;
+            }
+          }
+        }
+
+        .sns_set {
+          display: flex;
+
+          li {
+            &:first-child~li:nth-child(-n+4) a {
+              padding-left: 2rem;
+            }
+
+            a {
+              display: block;
+              font-size: 2.1rem;
+            }
+          }
+        }
+      }
+
+    }
+  }
+
+  .bottom_footer {
+    padding: 3rem 0;
+
+    .container {
+      dl {
+        display: flex;
+        font-size: 1.4rem;
+
+        &.f_info {
+          margin-bottom: 0.5rem;
+        }
+
+        &.s_info {
+          margin-bottom: 3rem;
+        }
+
+        dt {
+          width: 20%;
+          font-weight: 500;
+        }
+
+        dd {
+          margin-right: 1.5rem;
+          font-weight: 300;
+        }
+      }
+
+      span {
+        font-size: 1.1rem;
+        font-weight: 300;
+        letter-spacing: $en_letter;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  $bc: #212121;
+  $fc: #ddd;
+  $en_letter: 0.025em;
+
+  // * {
+  //   outline: 1px solid #fff;
+  // }
+
+  // HEADER CSS CODE
+  #header {
+    height: 100vh;
+    background: url('../assets/image/section/broadcast/drama/drama_02.jpg') !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position-x: -11rem !important;
+
+    >.container {
+      width: auto;
+
+      >* {
+        flex: auto;
+      }
+
+      .gnb {
+        position: fixed;
+        top: 0;
+        left: -100rem;
+        z-index: 1000;
+        width: 35rem;
+        height: 100vh;
+        color: #ddd;
+        background-color: $bc;
+        transition: 0.5s;
+
+        &.on {
+          left: 0;
+        }
+
+        .main_menu {
+          display: flex;
+          flex-direction: column;
+          margin: 5rem 0 0 0;
+
+          >li {
+            position: relative;
+
+            &:hover {
+              .sub_menu {
+                visibility: visible;
+              }
+            }
+
+            >a {
+              margin-left: 3rem;
+              font-size: 2.3rem;
+              font-weight: 600;
+              line-height: 7rem;
+            }
+
+            .sub_menu {
+              position: static;
+              transform: translateX(0);
+              width: 35rem;
+              height: 0;
+              opacity: 1;
+              visibility: visible;
+              transition: 0;
+              overflow: hidden;
+
+              &.on {
+                height: 15rem;
+              }
+
+              li {
+                a {
+                  margin-left: 4.5rem;
+                  border-bottom: 0.1rem solid $bc;
+                  font-size: 1.5rem;
+                  font-weight: 300;
+                  text-align: left;
+                }
+
+                &:last-child a {
+                  border-bottom: none;
+                }
+
+              }
+            }
+          }
+        }
+      }
+
+      h1 {
+        position: fixed;
+        top: -0.2%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 999;
+
+        img {
+          width: 80%;
+        }
+      }
+
+      .side_menu {
+        $end_padding: 0.6rem;
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 998;
+        padding-right: 1.5rem;
+        width: 100vw;
+        color: #fff !important;
+        background-color: #000;
+      }
+    }
+
+    .main_visual {
+      .container {
+        position: relative;
+        height: 100%;
+
+        .program_desc {
+          position: absolute;
+          top: 30%;
+          left: 7%;
+
+          em {
+            margin: 0 0 0.5rem 0.2rem;
+            font-size: 1.3rem;
+          }
+
+          h2 {
+            margin-bottom: 4.5rem;
+            font-size: 4rem;
+          }
+
+          p {
+            margin-bottom: 2.5rem;
+            font-size: 1.9rem;
+            font-weight: 400;
+            line-height: 1.399;
+          }
+
+          .btn {
+            padding: 1.5rem 2rem;
+            font-size: 1.7rem;
+          }
+        }
+
+        .control_box {
+          display: none;
+        }
+      }
+
+    }
+  }
+
+
+  #category {
+    padding: 6.25rem 1.5rem;
+
+    .container {
+
+      .title_box {
+        margin-bottom: 1.5rem;
+      }
+
+      .category_list {
+        width: auto;
+
+        li {
+          a {
+            font-size: 1.5rem;
+            font-weight: 400;
+          }
+        }
+      }
+
+      .contents_box.on {
+
+        display: grid;
+        grid-template-columns: 49% 49%;
+        grid-template-rows: 40rem 40rem;
+        grid-gap: 1rem;
+        padding: 0;
+
+        .box {
+          position: relative;
+          height: auto;
+
+          .btn_box {
+            display: none;
+          }
+
+          &:hover {
+            & .btn_box {
+              display: none;
+            }
+          }
+
+          &:nth-child(2) {
+            height: auto;
+          }
+
+          &:nth-child(5) {
+            display: none;
+          }
+
+        }
+      }
+    }
+  }
+
+  // * {
+  //   outline: 1px solid #fff;
+  // }
+
+  #news {
+    padding: 6.25rem 1.5rem;
+    background-color: #181818;
+
+    .news_box {
+      display: grid;
+      grid-template-columns: 49% 49%;
+      grid-template-rows: 30rem;
+      grid-auto-rows: 30rem;
+      grid-gap: 1rem;
+
+      padding: 0;
+
+      .box:first-child~.box {
+        padding: 3.5rem 0;
+      }
+
+      @for $i from 4 through 7 {
+        .box:nth-child(#{$i}) {
+          display: none;
+        }
+      }
+
+      .box {
+        &:first-child {
+          .title {
+            h4 {
+              margin-bottom: 2rem;
+              font-size: 2.1rem;
+              font-weight: 500;
+            }
+
+            .title_pic {
+              margin-bottom: 0;
+              height: 22rem;
+            }
+          }
+
+          .news_desc {
+            margin: 11.5% 0 0 6.5%;
+
+            strong {
+              margin-bottom: 3rem;
+              font-size: 1.8rem;
+              font-weight: 500;
+              line-height: 1.253;
+            }
+
+            p {
+              @include text-shorten;
+              margin-bottom: 1.5rem;
+            }
+
+            .btn_box {
+              display: flex;
+              gap: 1rem;
+
+              .btn {
+                display: inline-block;
+                padding: 1rem 1rem;
+                font-size: 1rem;
+
+                &:last-child {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+
+        dl {
+          margin-top: 1rem;
+          padding: 2rem;
+
+          dt {
+            position: relative;
+            margin: -3rem 0 4.5rem 0;
+            font-size: 1.8rem;
+
+            &::after {
+              width: 100%;
+            }
+          }
+        }
+
+        .more {
+          position: absolute;
+          top: 13%;
+          right: 10%;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+
+  #sports {
+    height: 120vh;
+
+    .sports_intro {
+      display: block;
+
+      >figure {
+        flex: auto;
+        position: relative;
+        height: 30rem;
+        cursor: pointer;
+
+        @mixin sports_hover {
+          .sports_box {
+            position: absolute;
+            top: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 997;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10rem;
+
+            figure {
+              position: absolute;
+              top: -9rem;
+              left: 50%;
+              transform: translateX(-50%);
+              width: 10rem;
+              height: 10rem;
+            }
+
+            @for $i from 1 through 4 {
+              .logo0#{$i} {
+                background-image: url('../assets/image/section/sports/logo_0#{$i}.png');
+              }
+            }
+
+            strong {
+              display: block;
+              margin-top: 3rem;
+              margin-bottom: 2.5rem;
+              font-size: 2.3rem;
+              font-weight: 500;
+            }
+
+            p {
+              display: none;
+            }
+
+            .btn_box {
+              display: flex;
+              flex-direction: column;
+              gap: 1rem;
+
+              .btn {
+                padding: 1rem;
+                font-size: 1.2rem;
+                text-align: center;
+              }
+            }
+          }
+        }
+
+        .sports_box {
+          position: absolute;
+          top: 5%;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 997;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-top: 10rem;
+
+          figure {
+            position: absolute;
+            top: -9rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10rem;
+            height: 10rem;
+          }
+
+          @for $i from 1 through 4 {
+            .logo0#{$i} {
+              background-image: url('../assets/image/section/sports/logo_0#{$i}.png');
+            }
+          }
+
+          strong {
+            display: block;
+            margin-top: 3rem;
+            margin-bottom: 2.5rem;
+            font-size: 2.3rem;
+            font-weight: 500;
+          }
+
+          p {
+            display: none;
+          }
+
+          .btn_box {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            .btn {
+              padding: 1rem;
+              font-size: 1.2rem;
+              text-align: center;
+            }
+          }
+        }
+
+
+        &:hover {
+          @include sports_hover;
+
+          @for $i from 1 through 4 {
+            &.itm0#{$i} {
+              background-image: linear-gradient(to bottom, rgba(5, 18, 26, 0.95) 100%,
+                rgba(33, 33, 33, 1) 100%),
+              url('../assets/image/section/sports/sports_bg_0#{$i}.jpg');
+            }
+          }
+        }
+      }
+
+      @for $i from 1 through 4 {
+        .itm0#{$i} {
+          background-image: linear-gradient(to bottom, rgba(5, 18, 26, 0.95) 100%,
+            rgba(33, 33, 33, 1) 100%),
+          url('../assets/image/section/sports/sports_bg_0#{$i}.jpg');
+        }
+      }
+    }
+  }
+
+  #notice {
+    padding: 6.25rem 1.5rem;
+
+    @mixin title {
+      margin-bottom: 2rem;
+      font-size: 2.4rem;
+      font-weight: 600;
+    }
+
+    .container {
+      .info {
+        float: none;
+        margin-bottom: 1.5rem;
+        padding: 3rem 1rem;
+        width: auto;
+
+        h4 {
+          @include title;
+          margin-bottom: 1.2rem;
+        }
+
+        p {
+          font-size: 1.7rem;
+          font-weight: 400;
+        }
+
+        .lnb {
+          li {
+            position: relative;
+
+            &.on {
+              font-weight: 600;
+            }
+          }
+
+        }
+
+        .tb_menu.on {
+          margin: 0 auto;
+          width: 48rem;
+
+          grid-gap: 1rem;
+
+          .box {
+            figure {
+              margin: 0 auto 1.5rem auto;
+              height: 60%;
+            }
+
+            &:nth-child(5),
+            &:nth-child(6) {
+              display: none;
+            }
+          }
+        }
+
+        @each $category in life,
+        food,
+        health,
+        house {
+          @for $i from 1 through 4 {
+            .#{$category} .itm0#{$i} {
+              background-image:url('../assets/image/section/notice/#{$category}/#{$category}_0#{$i}.jpg');
+            }
+          }
+        }
+      }
+
+      .notice_box {
+        float: none;
+        padding: 4.5rem;
+        width: auto;
+        height: auto;
+
+        h4 {
+          @include title;
+        }
+
+        .btn {
+          margin-left: 35%;
+          padding: 1.5rem 2rem;
+          font-size: 1.4rem;
+        }
+
+        .notice_table {
+          margin-bottom: 4rem;
+
+          tbody {
+            tr {
+              td {
+                padding: 3rem 0 1rem 0;
+              }
+
+              .contents {
+                font-size: 1.7rem;
+                font-weight: 400;
+              }
+
+              .date {
+                font-size: 1.6rem;
+                font-weight: 200;
+              }
+
+              &:nth-child(5),
+              &:nth-child(6),
+              &:nth-child(7) {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #footer {
+    padding: 3rem 1.5rem;
+    border-top: none;
+    display: flex;
+
+    .top_footer {
+      border-right: 0.1rem solid $bc;
+      border-bottom: none;
+      padding: 0 1.5rem;
+      width: 35%;
+
+      .container {
+        h2 {
+          margin-bottom: 4rem;
+        }
+
+        .semi_container {
+          flex-direction: column;
+
+          .tf_list {
+            flex-direction: column;
+            margin-bottom: 6rem;
+
+            li {
+              position: relative;
+              padding-bottom: 2rem;
+
+              &:first-child~li a {
+                padding-left: 0;
+              }
+
+              &:first-child~li::before {
+                display: none;
+              }
+
+              a {
+                font-size: 1.5rem;
+                font-weight: 400;
+              }
+            }
+          }
+
+          .sns_set {
+            li {
+              &:first-child~li:nth-child(-n+4) a {
+                padding-left: 1rem;
+              }
+
+              a {
+                font-size: 1.9rem;
+              }
+            }
+          }
+        }
+
+      }
+    }
+
+    .bottom_footer {
+      padding: 3rem 1.5rem;
+      width: 90%;
+
+
+      .container {
+        display: flex;
+        margin-top: 14.5%;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        dl {
+          flex-direction: column;
+          font-size: 1.4rem;
+          text-align: right;
+
+          &.f_info {
+            margin-bottom: 3.5rem;
+          }
+
+          &.s_info {
+            margin-bottom: 3rem;
+          }
+
+          dt {
+            margin-bottom: 1.5rem;
+            width: auto;
+            font-size: 1.6rem;
+            font-weight: 500;
+          }
+
+          dd {
+            margin-bottom: 0.5rem;
+            margin-right: 0;
+            font-size: 1.4rem;
+            font-weight: 300;
+          }
+        }
+
+        span {
+          font-size: 1.1rem;
+          font-weight: 300;
+          letter-spacing: $en_letter;
+          text-align: right;
+        }
+      }
+    }
+  }
+}
