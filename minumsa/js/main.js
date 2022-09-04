@@ -22,7 +22,7 @@ window.addEventListener('DOMContentLoaded', function () {
     breakpoints: {
       768: {
         slidesPerView: 5,
-        spaceBetween: 60,
+        spaceBetween: 30,
         loop: true,
       },
     },
@@ -68,6 +68,9 @@ window.addEventListener('DOMContentLoaded', function () {
       }
     }
   })
+
+  const FV = document.querySelector('.firstVisual');
+  FV.style.boxShadow = '0.2rem 0.2rem 1.7rem rgba(0, 0, 0, 0.25)';
 
   // HTMLCollection(유사배열)에 forEach 메소드 사용할 수 있게 하는 코드
   HTMLCollection.prototype.forEach = Array.prototype.forEach;
@@ -140,6 +143,7 @@ window.addEventListener('DOMContentLoaded', function () {
       });
 
       FV.style.backgroundImage = `url(${image_arr[afterIndex]})`;
+      FV.style.boxShadow = '0.2rem 0.2rem 1.7rem rgba(0, 0, 0, 0.25)';
     }
   })
 
