@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
   // HEADER JS CODE
   const HEADER = document.querySelector('#header');
-  const H_CON = document.querySelector('#header .container');
+  const H_CON = document.querySelector('#header>.container');
+  const M_CON = document.querySelector('#header .main_visual .container .program_desc:nth-child(3)');
+  const MB_CON = document.querySelector('#header .main_visual .container .program_desc:nth-child(3) .btn');
   const LOGO = document.querySelector('#header .container h1 img');
   const DESC = document.querySelectorAll('.program_desc');
   const SLIDEDOTS = document.querySelector('.slide_dots').children;
@@ -13,14 +15,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // main_visual 슬라이드 코드
   const headerSlider = function () {
+    console.log(idx);
     if (idx == 2) {
+      console.log(idx);
       H_CON.style.color = '#212121';
+      M_CON.style.color = '#212121';
+      MB_CON.style.color = "#ddd";
       if (window.outerWidth <= 768) {
         LOGO.setAttribute('src', "./assets/image/logo/mbc-logo.png");
       } else {
         LOGO.setAttribute('src', "./assets/image/logo/mbc-logo-b.png")
       }
     } else {
+      M_CON.style.color = '';
       H_CON.style.color = '';
       LOGO.setAttribute('src', "./assets/image/logo/mbc-logo.png");
     }
@@ -34,10 +41,14 @@ document.addEventListener('DOMContentLoaded', () => {
         elm.classList.add('on');
       }
     })
-    HEADER.style.background = `linear-gradient(to bottom, rgba(5, 18, 26, 0) 0, rgba(33, 33, 33, 1) 90%), url(${url_set[idx]})`;
+    idx == 2 ?
+      HEADER.style.background = `linear-gradient(to bottom, rgba(5, 18, 26, 0) 50%, rgba(33, 33, 33, 1) 90%), url(${url_set[idx]})` :
+      HEADER.style.background = `linear-gradient(to bottom, rgba(5, 18, 26, 0) 0, rgba(33, 33, 33, 1) 90%), url(${url_set[idx]})`;
     idx < 2 ? idx++ : idx = 0;
   }
 
+
+  let slide = setInterval(headerSlider, 3000);
 
   // slide-dots 클릭 시 슬라이드 이동
   dots_arr.forEach((elm, iidx) => {
@@ -60,25 +71,34 @@ document.addEventListener('DOMContentLoaded', () => {
       DESC[iidx].classList.add('on');
       // slide-dots 클릭 이후 setInterval을 통해 원래 순서대로 slide가 돌아가게 하기 위한 코드
       idx = iidx;
+      console.log(idx);
     })
   })
 
-  if (this.outerWidth > 768) {
-    let slide = setInterval(headerSlider, 5000);
-    window.addEventListener('resize', function () {
-      let cidx = idx ? idx - 1 : 0;
-      if (this.outerWidth <= 768) {
-        this.clearInterval(slide);
-        DESC.forEach(el => el.classList.remove('on'));
-        DESC[0].classList.add('on');
-      } else {
-        LOGO.setAttribute('src', "./assets/image/logo/mbc-logo.png");
-        DESC.forEach(el => el.classList.remove('on'));
-        DESC[cidx].classList.add('on');
-        slide = setInterval(headerSlider, 5000);
-      }
-    })
-  }
+  // if (this.outerWidth > 768) {
+  //   window.addEventListener('resize', function () {
+  //     let cidx = idx ? idx - 1 : 0;
+  //     if (this.outerWidth <= 768) {
+  //       this.clearInterval(slide);
+  //       DESC.forEach(el => el.classList.remove('on'));
+  //       DESC[0].classList.add('on');
+  //     } else {
+  //       LOGO.setAttribute('src', "./assets/image/logo/mbc-logo.png");
+  //       DESC.forEach(el => el.classList.remove('on'));
+  //       DESC[cidx].classList.add('on');
+  //       slide = setInterval(headerSlider, 5000);
+  //     }
+  //   })
+  // }
+
+
+  window.addEventListener('resize', function () {
+    if (this.outerWidth <= 768) {
+      clearInterval(slide);
+      DESC.forEach(el => el.classList.remove('on'));
+      DESC[0].classList.add('on');
+    }
+  })
 
 
 
@@ -92,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 슬라이드 중지 이벤트
   SLIDESTOP.addEventListener('click', function () {
+    console.log('click');
     clearInterval(slide);
   })
 
