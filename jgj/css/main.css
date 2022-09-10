@@ -32,14 +32,14 @@ section {
 }
 
 .title_box h3 {
-  margin-bottom: 3.5rem;
-  font-size: 2.9rem;
+  margin-bottom: 2rem;
+  font-size: 3.6rem;
   font-weight: 600;
 }
 
 .title_box p {
   margin-bottom: 2.8rem;
-  font-size: 1.7rem;
+  font-size: 2rem;
   font-weight: 400;
 }
 
@@ -58,7 +58,7 @@ section {
 /* TOP_HEADER CSS CODE */
 .top_header {
   border-bottom: 0.1rem solid #ddd;
-  background-color: #f9f9f9;
+  padding: 0.4rem;
 }
 
 .top_header .container {
@@ -69,20 +69,27 @@ section {
 .top_header .container a {
   display: block;
   padding: 0.5rem 0.6rem 0.5rem 1.5rem;
-  font-size: 1rem;
-  font-weight: 300;
+  font-size: 1.3rem;
+  font-weight: 400;
 }
 
 /* HEADER CSS CODE */
-header .big_box {
-  border-bottom: 0.1rem solid #ddd;
+header .container {
+  display: flex;
+  justify-content: space-between;
+  width: 120rem;
 }
 
-header .logo_box {
-  display: flex;
-  justify-content: center;
-  border-bottom: 0.1rem solid #ddd;
+header h1 {
   padding: 1rem 0;
+  width: 9%;
+}
+
+header .logo {
+  width: 100%;
+  height: 5rem;
+  background-image: url('../assets/image/logo/jgj_logo_black.svg');
+  background-size: contain;
 }
 
 header .logo_box img {
@@ -92,17 +99,21 @@ header .logo_box img {
 header .container .gnb {
   display: flex;
   justify-content: space-between;
+  gap: 4rem;
 }
+
 
 header .gnb .main_menu {
   display: flex;
+  padding: 1rem 0;
 }
 
-header .gnb .main_menu>li a {
+header .gnb .main_menu>li>a {
   display: block;
   padding: 1rem 1.9rem;
-  font-size: 1.7rem;
+  font-size: 1.9rem;
   font-weight: 500;
+  line-height: 1.5;
   text-align: center;
 }
 
@@ -110,66 +121,39 @@ header .main_menu li {
   position: relative;
 }
 
-header .main_menu>li:first-child::after {
-  content: '';
-  position: absolute;
-  top: 102%;
-  left: -36rem;
-  z-index: 990;
-  width: 102vw;
-  height: 0;
-  background-color: #f9f9f9;
-  transition: 0.5s;
-}
-
-header .main_menu:hover>li:first-child::after {
-  height: 100%;
-}
-
 header .main_menu .sub_menu {
   position: absolute;
-  width: 500%;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 991;
-  display: flex;
+  width: 15rem;
   opacity: 0;
   transition: 0.6s;
+  background-color: #fff;
 }
 
 header .main_menu .sub_menu>li a {
-  font-size: 1.4rem;
-  font-weight: 300;
+  display: block;
+  border-bottom: 0.1rem solid #ddd;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 2.6;
+  text-align: center;
 }
 
-header .main_menu>li:nth-child(2) .sub_menu {
-  left: -100%;
-}
-
-header .main_menu>li:first-child:hover .sub_menu,
-header .main_menu>li:nth-child(2):hover .sub_menu,
-header .main_menu>li:nth-child(3):hover .sub_menu,
-header .main_menu>li:nth-child(4):hover .sub_menu {
-  z-index: 999;
-}
-
-header .main_menu>li:nth-child(3) .sub_menu {
-  left: -168%;
-}
-
-header .main_menu>li:nth-child(4) .sub_menu {
-  left: -199%;
+header .main_menu .sub_menu>li:last-child {
+  border: none;
 }
 
 header .main_menu>li:hover>.sub_menu {
   opacity: 1;
 }
 
-header .main_menu .sub_menu a {
-  display: block;
-}
 
 header .gnb .side_menu {
   display: flex;
   justify-content: flex-start;
+  padding: 1.4rem 0;
 }
 
 header .side_menu a {
@@ -212,6 +196,7 @@ header .main_visual {
 }
 
 header .main_slider figure {
+  position: relative;
   width: 100%;
   height: 69rem;
 }
@@ -228,67 +213,52 @@ header .main_slider .itm03 {
   background-image: url('../assets/image/header/header_03.jpg');
 }
 
-header .main_visual .desc_box {
-  display: none;
+header .main_visual .desc {
   position: absolute;
-  top: 0;
-  left: 18.5%;
+  top: 2%;
+  left: 17%;
   width: 21%;
   height: 100%;
   z-index: 989;
   padding: 17.2rem 0 0 3.6rem;
   color: #fff;
-  background-color: rgba(0, 0, 0, 0.6);
 }
 
-header .main_visual .desc_box.on {
-  display: block;
+.hw_desc *,
+.gb_desc * {
+  color: #333;
+}
+
+.gb_desc {
+  top: 1%;
 }
 
 header .main_slider .slick-dots {
+  display: none;
   position: absolute;
   bottom: 16rem;
-  left: 56.7rem;
+  left: 19%;
   z-index: 999;
-}
-
-header .main_slider .slick-dots li {
-  display: inline-block;
-  margin-right: 1rem;
-  border-radius: 50%;
-  width: 2rem;
-  height: 2rem;
-  background-color: #333;
-  transition: 0.5s;
-}
-
-header .main_slider .slick-dots li button {
-  border: none;
-  background: transparent;
-  font-size: 0;
-}
-
-header .main_slider .slick-dots li.slick-active {
-  background-color: #d9d9d9;
 }
 
 header .desc span {
   display: block;
   margin-bottom: 0.2rem;
-  font-size: 1.3rem;
-  font-weight: 300;
+  font-size: 1.5rem;
+  font-weight: 400;
 }
 
 header .desc h2 {
   margin-bottom: 3.9rem;
-  font-size: 2.9rem;
+  width: 150%;
+  font-size: 3.5rem;
   font-weight: 700;
   line-height: 1.44827;
 }
 
 header .desc p {
   margin-bottom: 2.5rem;
-  font-size: 1.7rem;
+  font-size: 1.8rem;
   font-weight: 400;
   line-height: 1.470588;
 }
@@ -315,7 +285,7 @@ main .product {
 }
 
 main .product .title_box {
-  margin: 0 auto;
+  margin: 0 auto 4rem auto;
   width: 120rem;
   text-align: center;
 }
@@ -332,14 +302,6 @@ main .product .title_box p {
 .product .left_slider {
   float: left;
   width: 35.9rem;
-}
-
-.product .prd_desc {
-  display: none;
-}
-
-.product .prd_desc.on {
-  display: block;
 }
 
 .product .slide_box .left_slider {
@@ -460,131 +422,6 @@ main .product .title_box p {
   background-image: url('../assets/image/section/product/product_10.jpg');
 }
 
-/* WB_INTRO CSS CODE */
-main .wb_intro {
-  position: relative;
-  height: 100vh;
-  background: linear-gradient(#346c4f 41%, transparent 41%);
-
-}
-
-.wb_intro .container .title_box {
-  text-align: center;
-  color: #ddd;
-}
-
-.wb_intro .container .wellness_book {
-  position: relative;
-  margin: 0 auto;
-  width: 48%;
-  height: 68rem;
-  background-image: url('../assets/image/section/wellness/wellness_01.jpg');
-  background-size: contain;
-}
-
-.wb_intro .wellness_book .book_center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  opacity: 0;
-  transition: 0.5s;
-}
-
-.wb_intro .wellness_book:hover .book_center {
-  opacity: 1;
-}
-
-.wb_intro .book_center p {
-  margin-bottom: 4.3rem;
-  font-size: 2.3rem;
-  font-weight: 500;
-  line-height: 1.3043;
-  color: #333;
-}
-
-.wb_intro .book_center .target {
-  display: block;
-  position: relative;
-  margin: 0 auto;
-  border-radius: 50%;
-  width: 5rem;
-  height: 5rem;
-  background-color: #999;
-  opacity: 0;
-  transition: 0.3s 1s;
-}
-
-.wb_intro .wellness_book:hover .target {
-  opacity: 1;
-}
-
-.wb_intro .book_center figure {
-  position: absolute;
-  bottom: -2.4rem;
-  right: -1.2rem;
-  width: 4rem;
-  height: 4.9rem;
-  background-image: url('../assets/image/etc/click_icon.png');
-  animation: mouse_over 1s 1s infinite;
-}
-
-@keyframes mouse_over {
-  from {
-    bottom: -2.4rem;
-    right: -1.2rem;
-  }
-
-  to {
-    bottom: -1rem;
-    right: 0;
-  }
-}
-
-.wb_intro .container .letter {
-  display: none;
-  position: absolute;
-  font-size: 2.7rem;
-  font-weight: 500;
-  text-transform: capitalize;
-  animation: letter_over 1.5s 1s infinite;
-}
-
-.wb_intro .container .letter:nth-of-type(1) {
-  top: 44.8rem;
-  left: 38.2rem;
-}
-
-.wb_intro .container .letter:nth-of-type(2) {
-  bottom: 35.8rem;
-  right: 38.9rem;
-}
-
-.wb_intro .container .letter:nth-of-type(3) {
-  bottom: 17.5rem;
-  left: 44.7rem;
-}
-
-@keyframes letter_over {
-  0% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(0.7rem);
-  }
-
-  100% {
-    transform: translateY(0);
-  }
-}
-
-.wb_intro .sub_title {
-  display: none;
-}
-
 /* WB SECTION CSS CODE */
 main .wb {
   padding: 0;
@@ -592,6 +429,20 @@ main .wb {
 
 .wb>div {
   padding: 10rem 0;
+}
+
+.wb .wb_intro {
+  padding: 10rem 0 3rem 0;
+  background: linear-gradient(#346c4f 200%, transparent 200%);
+}
+
+.wb .wb_intro .container .title_box {
+  text-align: center;
+  color: #ddd;
+}
+
+.wb .wb_intro .title_box p {
+  color: #ddd;
 }
 
 .wb figure {
