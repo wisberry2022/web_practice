@@ -305,6 +305,10 @@ html {
   font-weight: 400;
 }
 
+.sony_product .title_box strong br {
+  display: none;
+}
+
 .sony_product .product_introduce {
   position: relative;
   height: 50rem;

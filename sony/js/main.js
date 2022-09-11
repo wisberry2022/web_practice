@@ -7,9 +7,11 @@ $(function () {
       autoPlay: ap_tf,
       mute: true,
       playOnlyIfVisible: true,
-      ratio: '4/3',
+      // ratio: '4/3',
+      ratio: '10/3',
       showControls: false,
       remember_last_time: false,
+      useOnMobile: true,
       loop: true,
     });
   }
@@ -55,8 +57,10 @@ $(function () {
 
   $(window).on('scroll', function () {
     // console.log($(this).scrollTop(), $('.sony_product').offset().top);
-    if ($(this).scrollTop() >= $('.sony_product').offset().top) {
-      $('.left_menu').removeClass('show_on');
+    if (this.outerWidth >= 768) {
+      if ($(this).scrollTop() >= $('.sony_product').offset().top) {
+        $('.left_menu').removeClass('show_on');
+      }
     }
   });
 
@@ -73,11 +77,20 @@ $(function () {
   $('.icon_menu li:last-child').on('click', function (e) {
     e.preventDefault();
     $('.left_menu').toggleClass('show_on');
+    $('.main_visual .slick-dots').toggleClass('on');
   })
 
   $('.event .event_slider').slick({
     arrows: false,
     slidesToShow: 3,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+        }
+      }
+    ]
   });
 
   $('.event i:nth-of-type(1)').on('click', function () {
